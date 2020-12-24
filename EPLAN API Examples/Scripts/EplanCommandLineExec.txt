@@ -1,0 +1,5 @@
+
+"C:\Program Files\EPLAN\Platform\2.7.3\Bin\EPLAN.exe" /Variant:"Electric P8" ExecuteScript /ScriptFile:"VerySimpleScript.cs"
+
+"C:\Program Files\EPLAN\Platform\2.7.3\Bin\EPLAN.exe" /Variant:"Electric P8" /Auto ExecuteScript /ScriptFile:"SimpleScriptWithParameters.cs" /Param1:Hello /Param2:EPLAN /Param3:" API Developer!"
+
