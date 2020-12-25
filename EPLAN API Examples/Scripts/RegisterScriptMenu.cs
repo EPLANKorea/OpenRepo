@@ -42,6 +42,6 @@ public class RegisterScriptMenu
 	{
 		Eplan.EplApi.Gui.Menu oMenu = new Eplan.EplApi.Gui.Menu();
 		oMenu.AddMenuItem("MyMenu Text", "MyScriptActionWithMenu");
-		oMenu.AddMenuItem("FirstAddin Text", "FirstAction");
+		oMenu.AddMenuItem("FirstAction Text", "FirstAction");
 	}
 }
