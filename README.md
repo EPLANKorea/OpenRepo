@@ -8,3 +8,10 @@ EPLAN Korea Public Repository
 
 * Contact: paek.harry@eplan.co.kr
  
+## Usage:
+* Personal or Noncommercial use for research, experiment, and testing for the benefit of public knowledge, personal study, private entertainment, hobby projects, amateur pursuits, without any anticipated commercial application, is allowed.
+
+## Distribution:
+* Distribution of copies of source code or binary are not allowed strictly.
+* Please contact to [EPLAN Korea](mailto:paek.harry@eplan.co.kr)
+
