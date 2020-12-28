@@ -1,6 +1,9 @@
 
-"C:\Program Files\EPLAN\Platform\2.7.3\Bin\EPLAN.exe" /Variant:"Electric P8" ExecuteScript /ScriptFile:"VerySimpleScript.cs"
-"C:\Program Files\EPLAN\Electric P8\2.7.3\Bin\W3u.exe" ExecuteScript /ScriptFile:"VerySimpleScript.cs"
+"C:\Program Files\EPLAN27\Platform\2.7.3\Bin\EPLAN.exe" /Variant:"Electric P8" ExecuteScript /ScriptFile:"VerySimpleScript.cs"
+"C:\Program Files\EPLAN27\Electric P8\2.7.3\Bin\W3u.exe" ExecuteScript /ScriptFile:"VerySimpleScript.cs"
 
-"C:\Program Files\EPLAN\Platform\2.7.3\Bin\EPLAN.exe" /Variant:"Electric P8" /Auto ExecuteScript /ScriptFile:"SimpleScriptWithParameters.cs" /Param1:Hello /Param2:EPLAN /Param3:" API Developer!"
-"C:\Program Files\EPLAN\Electric P8\2.7.3\Bin\W3u.exe" /Auto ExecuteScript /ScriptFile:"SimpleScriptWithParameters.cs" /Param1:Hello /Param2:EPLAN /Param3:" API Developer!"
+"C:\Program Files\EPLAN27\Platform\2.7.3\Bin\EPLAN.exe" /Variant:"Electric P8" MyScriptAction
+"C:\Program Files\EPLAN27\Electric P8\2.7.3\Bin\W3u.exe" MyScriptAction
+
+"C:\Program Files\EPLAN27\Platform\2.7.3\Bin\EPLAN.exe" /Variant:"Electric P8" /Auto ExecuteScript /ScriptFile:"SimpleScriptWithParameters.cs" /Param1:Hello /Param2:EPLAN /Param3:" API Developer!"
+"C:\Program Files\EPLAN27\Electric P8\2.7.3\Bin\W3u.exe" /Auto ExecuteScript /ScriptFile:"SimpleScriptWithParameters.cs" /Param1:Hello /Param2:EPLAN /Param3:" API Developer!"
