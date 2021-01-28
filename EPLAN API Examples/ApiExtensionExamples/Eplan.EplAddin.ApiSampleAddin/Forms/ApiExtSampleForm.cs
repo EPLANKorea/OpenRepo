@@ -277,10 +277,54 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
 
         #endregion
 
+        #region Part List Buttons
+
+        private void btnPartShowUsageInPage_Click(object sender, EventArgs e)
+        {
+            if (!ValidatePageSelected(this.cBoxPartPages))
+                return;
+
+            try
+            {
+                ISOCode guiLang = ApiExtHelpers.GetEplanGUILanguage();
+                Page targetPage = ((EplanPageViewModel)this.cBoxPartPages.SelectedItem).Page;
+
+                foreach (var function in targetPage.Functions)
+                {
+                    foreach (var partReference in function.ArticleReferences)
+                    {
+                        Article part = partReference.Article;
+
+                        StringBuilder propertyText = new StringBuilder();
+                        propertyText.AppendFormat("partReference.PartNr [{1}]{0}{0}", Environment.NewLine, partReference.PartNr);
+
+                        if (part != null) {
+                            propertyText.AppendFormat("part.Properties.ARTICLE_DESCR1 = [{1}]{0}{0}", Environment.NewLine, part.Properties.ARTICLE_DESCR1.IsEmpty ? string.Empty : part.Properties.ARTICLE_DESCR1.ToString());
+                            propertyText.AppendFormat("part.Properties.ARTICLE_DESCR2 = [{1}]{0}{0}", Environment.NewLine, part.Properties.ARTICLE_DESCR2.IsEmpty ? string.Empty : part.Properties.ARTICLE_DESCR2.ToString());
+                            propertyText.AppendFormat("part.Properties.ARTICLE_DESCR3 = [{1}]{0}{0}", Environment.NewLine, part.Properties.ARTICLE_DESCR2.IsEmpty ? string.Empty : part.Properties.ARTICLE_DESCR2.ToString());
+
+                            propertyText.AppendFormat("part.Properties.ARTICLE_NOTE = [{1}]{0}{0}", Environment.NewLine, part.Properties.ARTICLE_NOTE.IsEmpty ? string.Empty : part.Properties.ARTICLE_NOTE.ToString());
+                        }
+
+                        MessageDisplayHelper.Show(propertyText.ToString(), string.Format("[{0}] 속성", partReference.PartNr));
+                    } 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageDisplayHelper.Show(string.Format("Page Part Liist Failed!{0}{1}", Environment.NewLine, ex.Message), "::: Part Page List", EnumDecisionIcon.eEXCLAMATION);
+            }
+        }
+
+        #endregion
+
         private void tabControlSamples_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.tabControlSamples.SelectedTab.Name.Equals("tabPagePage", StringComparison.OrdinalIgnoreCase))
-                RefreshProjectPages();
+                RefreshProjectPages(this.cBoxPagePages);
+
+            if (this.tabControlSamples.SelectedTab.Name.Equals("tabPagePart", StringComparison.OrdinalIgnoreCase))
+                RefreshProjectPages(this.cBoxPartPages);
         }
 
         private void txtProjectRestoreZw1_TextChanged(object sender, EventArgs e)
@@ -311,10 +355,10 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             }
         }
 
-        private void RefreshProjectPages()
+        private void RefreshProjectPages(ComboBox pageListBox)
         {
-            this.cBoxPagePages.SelectedIndex = -1;
-            this.cBoxPagePages.Items.Clear();
+            pageListBox.SelectedIndex = -1;
+            pageListBox.Items.Clear();
 
             if (string.IsNullOrWhiteSpace(this.txtProject.Text))
                 return;
@@ -326,7 +370,7 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
 
             foreach (Page page in project.Pages)
             {
-                this.cBoxPagePages.Items.Add(new EplanPageViewModel(page));
+                pageListBox.Items.Add(new EplanPageViewModel(page));
             }
         }
 
