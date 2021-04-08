@@ -56,22 +56,39 @@
             this.btnPageSetProperties = new System.Windows.Forms.Button();
             this.lblPagePages = new System.Windows.Forms.Label();
             this.cBoxPagePages = new System.Windows.Forms.ComboBox();
+            this.tabPagePage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPage2PageName = new System.Windows.Forms.Label();
+            this.lblPage2PageDescription = new System.Windows.Forms.Label();
+            this.btnPage2Delete = new System.Windows.Forms.Button();
+            this.btnPage2Create = new System.Windows.Forms.Button();
+            this.btnPage2Search = new System.Windows.Forms.Button();
+            this.lblProjectCreatePages = new System.Windows.Forms.Label();
+            this.cBoxPageCreatePages = new System.Windows.Forms.ComboBox();
+            this.tabPagePart = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPartPartUsage = new System.Windows.Forms.Label();
+            this.btnPartShowUsageInProject = new System.Windows.Forms.Button();
+            this.btnPartShowUsageInPage = new System.Windows.Forms.Button();
+            this.lblPartPages = new System.Windows.Forms.Label();
+            this.cBoxPartPages = new System.Windows.Forms.ComboBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.lblProject = new System.Windows.Forms.Label();
             this.txtProject = new System.Windows.Forms.TextBox();
-            this.tabPagePart = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPartPages = new System.Windows.Forms.Label();
-            this.cBoxPartPages = new System.Windows.Forms.ComboBox();
-            this.btnPartShowUsageInProject = new System.Windows.Forms.Button();
-            this.btnPartShowUsageInPage = new System.Windows.Forms.Button();
-            this.lblPartPartUsage = new System.Windows.Forms.Label();
+            this.lblPage2HLF = new System.Windows.Forms.Label();
+            this.lblPage2ML = new System.Windows.Forms.Label();
+            this.txtPage2HLF = new System.Windows.Forms.TextBox();
+            this.txtPage2ML = new System.Windows.Forms.TextBox();
+            this.txtPage2PageName = new System.Windows.Forms.TextBox();
+            this.txtPage2Description = new System.Windows.Forms.TextBox();
             this.tableLayoutSample.SuspendLayout();
             this.tabControlSamples.SuspendLayout();
             this.tabPageProject.SuspendLayout();
             this.tableLayoutProject.SuspendLayout();
             this.tabPagePage.SuspendLayout();
             this.tableLayoutPage.SuspendLayout();
+            this.tabPagePage2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tabPagePart.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -79,25 +96,24 @@
             // tableLayoutSample
             // 
             this.tableLayoutSample.ColumnCount = 5;
-            this.tableLayoutSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
-            this.tableLayoutSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutSample.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutSample.Controls.Add(this.tabControlSamples, 0, 2);
             this.tableLayoutSample.Controls.Add(this.btnOK, 3, 3);
             this.tableLayoutSample.Controls.Add(this.lblProject, 1, 1);
             this.tableLayoutSample.Controls.Add(this.txtProject, 2, 1);
             this.tableLayoutSample.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutSample.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutSample.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutSample.Name = "tableLayoutSample";
             this.tableLayoutSample.RowCount = 4;
-            this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.tableLayoutSample.Size = new System.Drawing.Size(873, 551);
+            this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutSample.Size = new System.Drawing.Size(764, 441);
             this.tableLayoutSample.TabIndex = 0;
             // 
             // tabControlSamples
@@ -105,24 +121,23 @@
             this.tableLayoutSample.SetColumnSpan(this.tabControlSamples, 5);
             this.tabControlSamples.Controls.Add(this.tabPageProject);
             this.tabControlSamples.Controls.Add(this.tabPagePage);
+            this.tabControlSamples.Controls.Add(this.tabPagePage2);
             this.tabControlSamples.Controls.Add(this.tabPagePart);
             this.tabControlSamples.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlSamples.Location = new System.Drawing.Point(3, 91);
-            this.tabControlSamples.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabControlSamples.Location = new System.Drawing.Point(3, 73);
             this.tabControlSamples.Name = "tabControlSamples";
             this.tabControlSamples.SelectedIndex = 0;
-            this.tabControlSamples.Size = new System.Drawing.Size(867, 394);
+            this.tabControlSamples.Size = new System.Drawing.Size(758, 315);
             this.tabControlSamples.TabIndex = 0;
             this.tabControlSamples.SelectedIndexChanged += new System.EventHandler(this.tabControlSamples_SelectedIndexChanged);
             // 
             // tabPageProject
             // 
             this.tabPageProject.Controls.Add(this.tableLayoutProject);
-            this.tabPageProject.Location = new System.Drawing.Point(4, 25);
-            this.tabPageProject.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPageProject.Location = new System.Drawing.Point(4, 22);
             this.tabPageProject.Name = "tabPageProject";
-            this.tabPageProject.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPageProject.Size = new System.Drawing.Size(859, 365);
+            this.tabPageProject.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageProject.Size = new System.Drawing.Size(750, 289);
             this.tabPageProject.TabIndex = 0;
             this.tabPageProject.Text = "  Project  ";
             this.tabPageProject.UseVisualStyleBackColor = true;
@@ -130,15 +145,15 @@
             // tableLayoutProject
             // 
             this.tableLayoutProject.ColumnCount = 9;
-            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
-            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
+            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
-            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutProject.Controls.Add(this.lblProjectExportPDF, 1, 4);
             this.tableLayoutProject.Controls.Add(this.lblProjectProperties, 1, 3);
             this.tableLayoutProject.Controls.Add(this.btnProjectExportPDF, 3, 4);
@@ -154,28 +169,27 @@
             this.tableLayoutProject.Controls.Add(this.btnProjectSelectZw1, 6, 1);
             this.tableLayoutProject.Controls.Add(this.checkBoxProjectInclude3D, 2, 4);
             this.tableLayoutProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutProject.Location = new System.Drawing.Point(3, 4);
-            this.tableLayoutProject.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutProject.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutProject.Name = "tableLayoutProject";
             this.tableLayoutProject.RowCount = 7;
-            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutProject.Size = new System.Drawing.Size(853, 357);
+            this.tableLayoutProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutProject.Size = new System.Drawing.Size(744, 283);
             this.tableLayoutProject.TabIndex = 0;
             // 
             // lblProjectExportPDF
             // 
             this.lblProjectExportPDF.AutoSize = true;
             this.lblProjectExportPDF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblProjectExportPDF.Location = new System.Drawing.Point(17, 168);
-            this.lblProjectExportPDF.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lblProjectExportPDF.Location = new System.Drawing.Point(15, 135);
+            this.lblProjectExportPDF.Margin = new System.Windows.Forms.Padding(5);
             this.lblProjectExportPDF.Name = "lblProjectExportPDF";
-            this.lblProjectExportPDF.Size = new System.Drawing.Size(137, 38);
+            this.lblProjectExportPDF.Size = new System.Drawing.Size(120, 30);
             this.lblProjectExportPDF.TabIndex = 17;
             this.lblProjectExportPDF.Text = "Export PDF:";
             this.lblProjectExportPDF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -184,10 +198,10 @@
             // 
             this.lblProjectProperties.AutoSize = true;
             this.lblProjectProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblProjectProperties.Location = new System.Drawing.Point(17, 118);
-            this.lblProjectProperties.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lblProjectProperties.Location = new System.Drawing.Point(15, 95);
+            this.lblProjectProperties.Margin = new System.Windows.Forms.Padding(5);
             this.lblProjectProperties.Name = "lblProjectProperties";
-            this.lblProjectProperties.Size = new System.Drawing.Size(137, 38);
+            this.lblProjectProperties.Size = new System.Drawing.Size(120, 30);
             this.lblProjectProperties.TabIndex = 16;
             this.lblProjectProperties.Text = "Project Properties:";
             this.lblProjectProperties.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -196,10 +210,10 @@
             // 
             this.tableLayoutProject.SetColumnSpan(this.btnProjectExportPDF, 2);
             this.btnProjectExportPDF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProjectExportPDF.Location = new System.Drawing.Point(292, 168);
-            this.btnProjectExportPDF.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnProjectExportPDF.Location = new System.Drawing.Point(255, 135);
+            this.btnProjectExportPDF.Margin = new System.Windows.Forms.Padding(5);
             this.btnProjectExportPDF.Name = "btnProjectExportPDF";
-            this.btnProjectExportPDF.Size = new System.Drawing.Size(292, 38);
+            this.btnProjectExportPDF.Size = new System.Drawing.Size(254, 30);
             this.btnProjectExportPDF.TabIndex = 15;
             this.btnProjectExportPDF.Text = "Export PDF";
             this.btnProjectExportPDF.UseVisualStyleBackColor = true;
@@ -209,10 +223,10 @@
             // 
             this.tableLayoutProject.SetColumnSpan(this.btnProjectReadProperties, 2);
             this.btnProjectReadProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProjectReadProperties.Location = new System.Drawing.Point(444, 118);
-            this.btnProjectReadProperties.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnProjectReadProperties.Location = new System.Drawing.Point(387, 95);
+            this.btnProjectReadProperties.Margin = new System.Windows.Forms.Padding(5);
             this.btnProjectReadProperties.Name = "btnProjectReadProperties";
-            this.btnProjectReadProperties.Size = new System.Drawing.Size(266, 38);
+            this.btnProjectReadProperties.Size = new System.Drawing.Size(232, 30);
             this.btnProjectReadProperties.TabIndex = 12;
             this.btnProjectReadProperties.Text = "Read Properties";
             this.btnProjectReadProperties.UseVisualStyleBackColor = true;
@@ -222,10 +236,10 @@
             // 
             this.tableLayoutProject.SetColumnSpan(this.btnProjectSetProperties, 2);
             this.btnProjectSetProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProjectSetProperties.Location = new System.Drawing.Point(166, 118);
-            this.btnProjectSetProperties.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnProjectSetProperties.Location = new System.Drawing.Point(145, 95);
+            this.btnProjectSetProperties.Margin = new System.Windows.Forms.Padding(5);
             this.btnProjectSetProperties.Name = "btnProjectSetProperties";
-            this.btnProjectSetProperties.Size = new System.Drawing.Size(266, 38);
+            this.btnProjectSetProperties.Size = new System.Drawing.Size(232, 30);
             this.btnProjectSetProperties.TabIndex = 11;
             this.btnProjectSetProperties.Text = "Set Properties";
             this.btnProjectSetProperties.UseVisualStyleBackColor = true;
@@ -234,10 +248,10 @@
             // btnProjectSelectElk
             // 
             this.btnProjectSelectElk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProjectSelectElk.Location = new System.Drawing.Point(722, 68);
-            this.btnProjectSelectElk.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnProjectSelectElk.Location = new System.Drawing.Point(629, 55);
+            this.btnProjectSelectElk.Margin = new System.Windows.Forms.Padding(5);
             this.btnProjectSelectElk.Name = "btnProjectSelectElk";
-            this.btnProjectSelectElk.Size = new System.Drawing.Size(34, 38);
+            this.btnProjectSelectElk.Size = new System.Drawing.Size(30, 30);
             this.btnProjectSelectElk.TabIndex = 10;
             this.btnProjectSelectElk.Text = "...";
             this.btnProjectSelectElk.UseVisualStyleBackColor = true;
@@ -247,11 +261,11 @@
             // 
             this.tableLayoutProject.SetColumnSpan(this.txtProjectOpenElk, 4);
             this.txtProjectOpenElk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProjectOpenElk.Location = new System.Drawing.Point(163, 74);
-            this.txtProjectOpenElk.Margin = new System.Windows.Forms.Padding(3, 12, 3, 4);
+            this.txtProjectOpenElk.Location = new System.Drawing.Point(143, 60);
+            this.txtProjectOpenElk.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.txtProjectOpenElk.Name = "txtProjectOpenElk";
             this.txtProjectOpenElk.ReadOnly = true;
-            this.txtProjectOpenElk.Size = new System.Drawing.Size(550, 25);
+            this.txtProjectOpenElk.Size = new System.Drawing.Size(478, 21);
             this.txtProjectOpenElk.TabIndex = 9;
             this.txtProjectOpenElk.Text = "ELK Project Full Path";
             // 
@@ -259,10 +273,10 @@
             // 
             this.lblProjectOpenElk.AutoSize = true;
             this.lblProjectOpenElk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblProjectOpenElk.Location = new System.Drawing.Point(17, 68);
-            this.lblProjectOpenElk.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lblProjectOpenElk.Location = new System.Drawing.Point(15, 55);
+            this.lblProjectOpenElk.Margin = new System.Windows.Forms.Padding(5);
             this.lblProjectOpenElk.Name = "lblProjectOpenElk";
-            this.lblProjectOpenElk.Size = new System.Drawing.Size(137, 38);
+            this.lblProjectOpenElk.Size = new System.Drawing.Size(120, 30);
             this.lblProjectOpenElk.TabIndex = 8;
             this.lblProjectOpenElk.Text = "ELK Project:";
             this.lblProjectOpenElk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -270,10 +284,10 @@
             // btnProjectOpenElk
             // 
             this.btnProjectOpenElk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProjectOpenElk.Location = new System.Drawing.Point(768, 68);
-            this.btnProjectOpenElk.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnProjectOpenElk.Location = new System.Drawing.Point(669, 55);
+            this.btnProjectOpenElk.Margin = new System.Windows.Forms.Padding(5);
             this.btnProjectOpenElk.Name = "btnProjectOpenElk";
-            this.btnProjectOpenElk.Size = new System.Drawing.Size(68, 38);
+            this.btnProjectOpenElk.Size = new System.Drawing.Size(60, 30);
             this.btnProjectOpenElk.TabIndex = 7;
             this.btnProjectOpenElk.Text = "Open";
             this.btnProjectOpenElk.UseVisualStyleBackColor = true;
@@ -282,10 +296,10 @@
             // btnProjectRestoreZw1
             // 
             this.btnProjectRestoreZw1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProjectRestoreZw1.Location = new System.Drawing.Point(768, 18);
-            this.btnProjectRestoreZw1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnProjectRestoreZw1.Location = new System.Drawing.Point(669, 15);
+            this.btnProjectRestoreZw1.Margin = new System.Windows.Forms.Padding(5);
             this.btnProjectRestoreZw1.Name = "btnProjectRestoreZw1";
-            this.btnProjectRestoreZw1.Size = new System.Drawing.Size(68, 38);
+            this.btnProjectRestoreZw1.Size = new System.Drawing.Size(60, 30);
             this.btnProjectRestoreZw1.TabIndex = 6;
             this.btnProjectRestoreZw1.Text = "Restore";
             this.btnProjectRestoreZw1.UseVisualStyleBackColor = true;
@@ -295,11 +309,11 @@
             // 
             this.tableLayoutProject.SetColumnSpan(this.txtProjectRestoreZw1, 4);
             this.txtProjectRestoreZw1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProjectRestoreZw1.Location = new System.Drawing.Point(163, 24);
-            this.txtProjectRestoreZw1.Margin = new System.Windows.Forms.Padding(3, 12, 3, 4);
+            this.txtProjectRestoreZw1.Location = new System.Drawing.Point(143, 20);
+            this.txtProjectRestoreZw1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.txtProjectRestoreZw1.Name = "txtProjectRestoreZw1";
             this.txtProjectRestoreZw1.ReadOnly = true;
-            this.txtProjectRestoreZw1.Size = new System.Drawing.Size(550, 25);
+            this.txtProjectRestoreZw1.Size = new System.Drawing.Size(478, 21);
             this.txtProjectRestoreZw1.TabIndex = 4;
             this.txtProjectRestoreZw1.Text = "Zw1 Project Full Path";
             this.txtProjectRestoreZw1.TextChanged += new System.EventHandler(this.txtProjectRestoreZw1_TextChanged);
@@ -308,10 +322,10 @@
             // 
             this.lblProjectRestoreZw1.AutoSize = true;
             this.lblProjectRestoreZw1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblProjectRestoreZw1.Location = new System.Drawing.Point(17, 18);
-            this.lblProjectRestoreZw1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lblProjectRestoreZw1.Location = new System.Drawing.Point(15, 15);
+            this.lblProjectRestoreZw1.Margin = new System.Windows.Forms.Padding(5);
             this.lblProjectRestoreZw1.Name = "lblProjectRestoreZw1";
-            this.lblProjectRestoreZw1.Size = new System.Drawing.Size(137, 38);
+            this.lblProjectRestoreZw1.Size = new System.Drawing.Size(120, 30);
             this.lblProjectRestoreZw1.TabIndex = 0;
             this.lblProjectRestoreZw1.Text = "Zw1 Project:";
             this.lblProjectRestoreZw1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -319,10 +333,10 @@
             // btnProjectSelectZw1
             // 
             this.btnProjectSelectZw1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProjectSelectZw1.Location = new System.Drawing.Point(722, 18);
-            this.btnProjectSelectZw1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnProjectSelectZw1.Location = new System.Drawing.Point(629, 15);
+            this.btnProjectSelectZw1.Margin = new System.Windows.Forms.Padding(5);
             this.btnProjectSelectZw1.Name = "btnProjectSelectZw1";
-            this.btnProjectSelectZw1.Size = new System.Drawing.Size(34, 38);
+            this.btnProjectSelectZw1.Size = new System.Drawing.Size(30, 30);
             this.btnProjectSelectZw1.TabIndex = 5;
             this.btnProjectSelectZw1.Text = "...";
             this.btnProjectSelectZw1.UseVisualStyleBackColor = true;
@@ -332,10 +346,10 @@
             // 
             this.checkBoxProjectInclude3D.AutoSize = true;
             this.checkBoxProjectInclude3D.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBoxProjectInclude3D.Location = new System.Drawing.Point(168, 171);
-            this.checkBoxProjectInclude3D.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            this.checkBoxProjectInclude3D.Location = new System.Drawing.Point(147, 137);
+            this.checkBoxProjectInclude3D.Margin = new System.Windows.Forms.Padding(7);
             this.checkBoxProjectInclude3D.Name = "checkBoxProjectInclude3D";
-            this.checkBoxProjectInclude3D.Size = new System.Drawing.Size(110, 32);
+            this.checkBoxProjectInclude3D.Size = new System.Drawing.Size(96, 26);
             this.checkBoxProjectInclude3D.TabIndex = 18;
             this.checkBoxProjectInclude3D.Text = "Include 3D";
             this.checkBoxProjectInclude3D.UseVisualStyleBackColor = true;
@@ -343,27 +357,26 @@
             // tabPagePage
             // 
             this.tabPagePage.Controls.Add(this.tableLayoutPage);
-            this.tabPagePage.Location = new System.Drawing.Point(4, 25);
-            this.tabPagePage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPagePage.Location = new System.Drawing.Point(4, 22);
             this.tabPagePage.Name = "tabPagePage";
-            this.tabPagePage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPagePage.Size = new System.Drawing.Size(859, 365);
+            this.tabPagePage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePage.Size = new System.Drawing.Size(750, 289);
             this.tabPagePage.TabIndex = 1;
-            this.tabPagePage.Text = "  Page  ";
+            this.tabPagePage.Text = "Page Properties";
             this.tabPagePage.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPage
             // 
             this.tableLayoutPage.ColumnCount = 9;
-            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
-            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
+            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
-            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPage.Controls.Add(this.lblPageProperties, 1, 3);
             this.tableLayoutPage.Controls.Add(this.lblPageExportPDF, 1, 4);
             this.tableLayoutPage.Controls.Add(this.checkBoxPageInclude3D, 2, 4);
@@ -373,28 +386,27 @@
             this.tableLayoutPage.Controls.Add(this.lblPagePages, 1, 1);
             this.tableLayoutPage.Controls.Add(this.cBoxPagePages, 2, 1);
             this.tableLayoutPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPage.Location = new System.Drawing.Point(3, 4);
-            this.tableLayoutPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPage.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPage.Name = "tableLayoutPage";
             this.tableLayoutPage.RowCount = 7;
-            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPage.Size = new System.Drawing.Size(853, 357);
+            this.tableLayoutPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPage.Size = new System.Drawing.Size(744, 283);
             this.tableLayoutPage.TabIndex = 1;
             // 
             // lblPageProperties
             // 
             this.lblPageProperties.AutoSize = true;
             this.lblPageProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPageProperties.Location = new System.Drawing.Point(17, 118);
-            this.lblPageProperties.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lblPageProperties.Location = new System.Drawing.Point(15, 95);
+            this.lblPageProperties.Margin = new System.Windows.Forms.Padding(5);
             this.lblPageProperties.Name = "lblPageProperties";
-            this.lblPageProperties.Size = new System.Drawing.Size(137, 38);
+            this.lblPageProperties.Size = new System.Drawing.Size(120, 30);
             this.lblPageProperties.TabIndex = 21;
             this.lblPageProperties.Text = "Page Properties:";
             this.lblPageProperties.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -403,10 +415,10 @@
             // 
             this.lblPageExportPDF.AutoSize = true;
             this.lblPageExportPDF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPageExportPDF.Location = new System.Drawing.Point(17, 168);
-            this.lblPageExportPDF.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lblPageExportPDF.Location = new System.Drawing.Point(15, 135);
+            this.lblPageExportPDF.Margin = new System.Windows.Forms.Padding(5);
             this.lblPageExportPDF.Name = "lblPageExportPDF";
-            this.lblPageExportPDF.Size = new System.Drawing.Size(137, 38);
+            this.lblPageExportPDF.Size = new System.Drawing.Size(120, 30);
             this.lblPageExportPDF.TabIndex = 20;
             this.lblPageExportPDF.Text = "Export PDF:";
             this.lblPageExportPDF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -415,10 +427,10 @@
             // 
             this.checkBoxPageInclude3D.AutoSize = true;
             this.checkBoxPageInclude3D.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBoxPageInclude3D.Location = new System.Drawing.Point(168, 171);
-            this.checkBoxPageInclude3D.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            this.checkBoxPageInclude3D.Location = new System.Drawing.Point(147, 137);
+            this.checkBoxPageInclude3D.Margin = new System.Windows.Forms.Padding(7);
             this.checkBoxPageInclude3D.Name = "checkBoxPageInclude3D";
-            this.checkBoxPageInclude3D.Size = new System.Drawing.Size(110, 32);
+            this.checkBoxPageInclude3D.Size = new System.Drawing.Size(96, 26);
             this.checkBoxPageInclude3D.TabIndex = 19;
             this.checkBoxPageInclude3D.Text = "Include 3D";
             this.checkBoxPageInclude3D.UseVisualStyleBackColor = true;
@@ -427,10 +439,10 @@
             // 
             this.tableLayoutPage.SetColumnSpan(this.btnPageExportPDF, 2);
             this.btnPageExportPDF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPageExportPDF.Location = new System.Drawing.Point(292, 168);
-            this.btnPageExportPDF.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnPageExportPDF.Location = new System.Drawing.Point(255, 135);
+            this.btnPageExportPDF.Margin = new System.Windows.Forms.Padding(5);
             this.btnPageExportPDF.Name = "btnPageExportPDF";
-            this.btnPageExportPDF.Size = new System.Drawing.Size(292, 38);
+            this.btnPageExportPDF.Size = new System.Drawing.Size(254, 30);
             this.btnPageExportPDF.TabIndex = 14;
             this.btnPageExportPDF.Text = "Export PDF";
             this.btnPageExportPDF.UseVisualStyleBackColor = true;
@@ -440,10 +452,10 @@
             // 
             this.tableLayoutPage.SetColumnSpan(this.btnPageReadProperties, 2);
             this.btnPageReadProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPageReadProperties.Location = new System.Drawing.Point(444, 118);
-            this.btnPageReadProperties.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnPageReadProperties.Location = new System.Drawing.Point(387, 95);
+            this.btnPageReadProperties.Margin = new System.Windows.Forms.Padding(5);
             this.btnPageReadProperties.Name = "btnPageReadProperties";
-            this.btnPageReadProperties.Size = new System.Drawing.Size(266, 38);
+            this.btnPageReadProperties.Size = new System.Drawing.Size(232, 30);
             this.btnPageReadProperties.TabIndex = 12;
             this.btnPageReadProperties.Text = "Read Properties";
             this.btnPageReadProperties.UseVisualStyleBackColor = true;
@@ -453,10 +465,10 @@
             // 
             this.tableLayoutPage.SetColumnSpan(this.btnPageSetProperties, 2);
             this.btnPageSetProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPageSetProperties.Location = new System.Drawing.Point(166, 118);
-            this.btnPageSetProperties.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnPageSetProperties.Location = new System.Drawing.Point(145, 95);
+            this.btnPageSetProperties.Margin = new System.Windows.Forms.Padding(5);
             this.btnPageSetProperties.Name = "btnPageSetProperties";
-            this.btnPageSetProperties.Size = new System.Drawing.Size(266, 38);
+            this.btnPageSetProperties.Size = new System.Drawing.Size(232, 30);
             this.btnPageSetProperties.TabIndex = 11;
             this.btnPageSetProperties.Text = "Set Properties";
             this.btnPageSetProperties.UseVisualStyleBackColor = true;
@@ -466,10 +478,10 @@
             // 
             this.lblPagePages.AutoSize = true;
             this.lblPagePages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPagePages.Location = new System.Drawing.Point(17, 18);
-            this.lblPagePages.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lblPagePages.Location = new System.Drawing.Point(15, 15);
+            this.lblPagePages.Margin = new System.Windows.Forms.Padding(5);
             this.lblPagePages.Name = "lblPagePages";
-            this.lblPagePages.Size = new System.Drawing.Size(137, 38);
+            this.lblPagePages.Size = new System.Drawing.Size(120, 30);
             this.lblPagePages.TabIndex = 0;
             this.lblPagePages.Text = "Project Pages:";
             this.lblPagePages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -483,57 +495,162 @@
             this.cBoxPagePages.Font = new System.Drawing.Font("Gulim", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cBoxPagePages.FormattingEnabled = true;
             this.cBoxPagePages.IntegralHeight = false;
-            this.cBoxPagePages.ItemHeight = 16;
-            this.cBoxPagePages.Location = new System.Drawing.Point(166, 24);
-            this.cBoxPagePages.Margin = new System.Windows.Forms.Padding(6, 12, 6, 6);
+            this.cBoxPagePages.ItemHeight = 13;
+            this.cBoxPagePages.Location = new System.Drawing.Point(145, 20);
+            this.cBoxPagePages.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.cBoxPagePages.MaxDropDownItems = 9;
             this.cBoxPagePages.Name = "cBoxPagePages";
-            this.cBoxPagePages.Size = new System.Drawing.Size(590, 24);
+            this.cBoxPagePages.Size = new System.Drawing.Size(514, 21);
             this.cBoxPagePages.TabIndex = 13;
             // 
-            // btnOK
+            // tabPagePage2
             // 
-            this.btnOK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOK.Location = new System.Drawing.Point(699, 498);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(155, 44);
-            this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            this.tabPagePage2.Controls.Add(this.tableLayoutPanel2);
+            this.tabPagePage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePage2.Name = "tabPagePage2";
+            this.tabPagePage2.Size = new System.Drawing.Size(750, 289);
+            this.tabPagePage2.TabIndex = 3;
+            this.tabPagePage2.Text = "Page Create & Delete";
+            this.tabPagePage2.UseVisualStyleBackColor = true;
             // 
-            // lblProject
+            // tableLayoutPanel2
             // 
-            this.lblProject.AutoSize = true;
-            this.lblProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblProject.Location = new System.Drawing.Point(31, 34);
-            this.lblProject.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            this.lblProject.Name = "lblProject";
-            this.lblProject.Size = new System.Drawing.Size(98, 44);
-            this.lblProject.TabIndex = 2;
-            this.lblProject.Text = "Project:";
-            this.lblProject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tableLayoutPanel2.ColumnCount = 9;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel2.Controls.Add(this.txtPage2Description, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtPage2PageName, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtPage2ML, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtPage2HLF, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblPage2ML, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblPage2HLF, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblPage2PageName, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lblPage2PageDescription, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btnPage2Delete, 5, 5);
+            this.tableLayoutPanel2.Controls.Add(this.btnPage2Create, 5, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnPage2Search, 4, 3);
+            this.tableLayoutPanel2.Controls.Add(this.lblProjectCreatePages, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.cBoxPageCreatePages, 2, 5);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 8;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(750, 289);
+            this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // txtProject
+            // lblPage2PageName
             // 
-            this.tableLayoutSample.SetColumnSpan(this.txtProject, 2);
-            this.txtProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProject.Location = new System.Drawing.Point(138, 44);
-            this.txtProject.Margin = new System.Windows.Forms.Padding(1, 19, 1, 12);
-            this.txtProject.Name = "txtProject";
-            this.txtProject.ReadOnly = true;
-            this.txtProject.Size = new System.Drawing.Size(723, 25);
-            this.txtProject.TabIndex = 3;
-            this.txtProject.Text = "EPLAN Project Full Path";
+            this.lblPage2PageName.AutoSize = true;
+            this.lblPage2PageName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPage2PageName.Location = new System.Drawing.Point(15, 55);
+            this.lblPage2PageName.Margin = new System.Windows.Forms.Padding(5);
+            this.lblPage2PageName.Name = "lblPage2PageName";
+            this.lblPage2PageName.Size = new System.Drawing.Size(140, 30);
+            this.lblPage2PageName.TabIndex = 21;
+            this.lblPage2PageName.Text = "Page Name:";
+            this.lblPage2PageName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPage2PageDescription
+            // 
+            this.lblPage2PageDescription.AutoSize = true;
+            this.lblPage2PageDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPage2PageDescription.Location = new System.Drawing.Point(275, 55);
+            this.lblPage2PageDescription.Margin = new System.Windows.Forms.Padding(5);
+            this.lblPage2PageDescription.Name = "lblPage2PageDescription";
+            this.lblPage2PageDescription.Size = new System.Drawing.Size(115, 30);
+            this.lblPage2PageDescription.TabIndex = 20;
+            this.lblPage2PageDescription.Text = "Description:";
+            this.lblPage2PageDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnPage2Delete
+            // 
+            this.btnPage2Delete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPage2Delete.Location = new System.Drawing.Point(525, 155);
+            this.btnPage2Delete.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPage2Delete.Name = "btnPage2Delete";
+            this.btnPage2Delete.Size = new System.Drawing.Size(100, 30);
+            this.btnPage2Delete.TabIndex = 14;
+            this.btnPage2Delete.Text = "Delete";
+            this.btnPage2Delete.UseVisualStyleBackColor = true;
+            this.btnPage2Delete.Click += new System.EventHandler(this.btnPage2Delete_Click);
+            // 
+            // btnPage2Create
+            // 
+            this.btnPage2Create.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPage2Create.Location = new System.Drawing.Point(525, 95);
+            this.btnPage2Create.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPage2Create.Name = "btnPage2Create";
+            this.btnPage2Create.Size = new System.Drawing.Size(100, 30);
+            this.btnPage2Create.TabIndex = 12;
+            this.btnPage2Create.Text = "Create";
+            this.btnPage2Create.UseVisualStyleBackColor = true;
+            this.btnPage2Create.Click += new System.EventHandler(this.btnPage2Create_Click);
+            // 
+            // btnPage2Search
+            // 
+            this.btnPage2Search.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPage2Search.Location = new System.Drawing.Point(400, 95);
+            this.btnPage2Search.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPage2Search.Name = "btnPage2Search";
+            this.btnPage2Search.Size = new System.Drawing.Size(115, 30);
+            this.btnPage2Search.TabIndex = 11;
+            this.btnPage2Search.Text = "Search";
+            this.btnPage2Search.UseVisualStyleBackColor = true;
+            this.btnPage2Search.Click += new System.EventHandler(this.btnPage2Search_Click);
+            // 
+            // lblProjectCreatePages
+            // 
+            this.lblProjectCreatePages.AutoSize = true;
+            this.lblProjectCreatePages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblProjectCreatePages.Location = new System.Drawing.Point(15, 155);
+            this.lblProjectCreatePages.Margin = new System.Windows.Forms.Padding(5);
+            this.lblProjectCreatePages.Name = "lblProjectCreatePages";
+            this.lblProjectCreatePages.Size = new System.Drawing.Size(140, 30);
+            this.lblProjectCreatePages.TabIndex = 0;
+            this.lblProjectCreatePages.Text = "Project Pages:";
+            this.lblProjectCreatePages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cBoxPageCreatePages
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.cBoxPageCreatePages, 3);
+            this.cBoxPageCreatePages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cBoxPageCreatePages.DropDownHeight = 120;
+            this.cBoxPageCreatePages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxPageCreatePages.Font = new System.Drawing.Font("Gulim", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cBoxPageCreatePages.FormattingEnabled = true;
+            this.cBoxPageCreatePages.IntegralHeight = false;
+            this.cBoxPageCreatePages.ItemHeight = 13;
+            this.cBoxPageCreatePages.Location = new System.Drawing.Point(165, 160);
+            this.cBoxPageCreatePages.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.cBoxPageCreatePages.MaxDropDownItems = 9;
+            this.cBoxPageCreatePages.Name = "cBoxPageCreatePages";
+            this.cBoxPageCreatePages.Size = new System.Drawing.Size(350, 21);
+            this.cBoxPageCreatePages.TabIndex = 13;
             // 
             // tabPagePart
             // 
             this.tabPagePart.Controls.Add(this.tableLayoutPanel1);
-            this.tabPagePart.Location = new System.Drawing.Point(4, 25);
+            this.tabPagePart.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPagePart.Name = "tabPagePart";
-            this.tabPagePart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePart.Size = new System.Drawing.Size(859, 365);
+            this.tabPagePart.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPagePart.Size = new System.Drawing.Size(750, 289);
             this.tabPagePart.TabIndex = 2;
             this.tabPagePart.Text = "Part";
             this.tabPagePart.UseVisualStyleBackColor = true;
@@ -541,43 +658,79 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 9;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.Controls.Add(this.lblPartPartUsage, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnPartShowUsageInProject, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnPartShowUsageInPage, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblPartPages, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.cBoxPartPages, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(853, 359);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(744, 285);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // lblPartPartUsage
+            // 
+            this.lblPartPartUsage.AutoSize = true;
+            this.lblPartPartUsage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPartPartUsage.Location = new System.Drawing.Point(15, 95);
+            this.lblPartPartUsage.Margin = new System.Windows.Forms.Padding(5);
+            this.lblPartPartUsage.Name = "lblPartPartUsage";
+            this.lblPartPartUsage.Size = new System.Drawing.Size(120, 30);
+            this.lblPartPartUsage.TabIndex = 21;
+            this.lblPartPartUsage.Text = "Part In Pages:";
+            this.lblPartPartUsage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnPartShowUsageInProject
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.btnPartShowUsageInProject, 2);
+            this.btnPartShowUsageInProject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPartShowUsageInProject.Location = new System.Drawing.Point(387, 95);
+            this.btnPartShowUsageInProject.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPartShowUsageInProject.Name = "btnPartShowUsageInProject";
+            this.btnPartShowUsageInProject.Size = new System.Drawing.Size(232, 30);
+            this.btnPartShowUsageInProject.TabIndex = 12;
+            this.btnPartShowUsageInProject.Text = "Project Part List";
+            this.btnPartShowUsageInProject.UseVisualStyleBackColor = true;
+            // 
+            // btnPartShowUsageInPage
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.btnPartShowUsageInPage, 2);
+            this.btnPartShowUsageInPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPartShowUsageInPage.Location = new System.Drawing.Point(145, 95);
+            this.btnPartShowUsageInPage.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPartShowUsageInPage.Name = "btnPartShowUsageInPage";
+            this.btnPartShowUsageInPage.Size = new System.Drawing.Size(232, 30);
+            this.btnPartShowUsageInPage.TabIndex = 11;
+            this.btnPartShowUsageInPage.Text = "Page Part List";
+            this.btnPartShowUsageInPage.UseVisualStyleBackColor = true;
+            this.btnPartShowUsageInPage.Click += new System.EventHandler(this.btnPartShowUsageInPage_Click);
             // 
             // lblPartPages
             // 
             this.lblPartPages.AutoSize = true;
             this.lblPartPages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPartPages.Location = new System.Drawing.Point(17, 18);
-            this.lblPartPages.Margin = new System.Windows.Forms.Padding(6);
+            this.lblPartPages.Location = new System.Drawing.Point(15, 15);
+            this.lblPartPages.Margin = new System.Windows.Forms.Padding(5);
             this.lblPartPages.Name = "lblPartPages";
-            this.lblPartPages.Size = new System.Drawing.Size(137, 38);
+            this.lblPartPages.Size = new System.Drawing.Size(120, 30);
             this.lblPartPages.TabIndex = 0;
             this.lblPartPages.Text = "Project Pages:";
             this.lblPartPages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -591,58 +744,125 @@
             this.cBoxPartPages.Font = new System.Drawing.Font("Gulim", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cBoxPartPages.FormattingEnabled = true;
             this.cBoxPartPages.IntegralHeight = false;
-            this.cBoxPartPages.ItemHeight = 16;
-            this.cBoxPartPages.Location = new System.Drawing.Point(166, 24);
-            this.cBoxPartPages.Margin = new System.Windows.Forms.Padding(6, 12, 6, 6);
+            this.cBoxPartPages.ItemHeight = 13;
+            this.cBoxPartPages.Location = new System.Drawing.Point(145, 20);
+            this.cBoxPartPages.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.cBoxPartPages.MaxDropDownItems = 9;
             this.cBoxPartPages.Name = "cBoxPartPages";
-            this.cBoxPartPages.Size = new System.Drawing.Size(590, 24);
+            this.cBoxPartPages.Size = new System.Drawing.Size(514, 21);
             this.cBoxPartPages.TabIndex = 13;
             // 
-            // btnPartShowUsageInProject
+            // btnOK
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.btnPartShowUsageInProject, 2);
-            this.btnPartShowUsageInProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPartShowUsageInProject.Location = new System.Drawing.Point(444, 118);
-            this.btnPartShowUsageInProject.Margin = new System.Windows.Forms.Padding(6);
-            this.btnPartShowUsageInProject.Name = "btnPartShowUsageInProject";
-            this.btnPartShowUsageInProject.Size = new System.Drawing.Size(266, 38);
-            this.btnPartShowUsageInProject.TabIndex = 12;
-            this.btnPartShowUsageInProject.Text = "Project Part List";
-            this.btnPartShowUsageInProject.UseVisualStyleBackColor = true;
+            this.btnOK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOK.Location = new System.Drawing.Point(611, 398);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(7);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(136, 36);
+            this.btnOK.TabIndex = 1;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // btnPartShowUsageInPage
+            // lblProject
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.btnPartShowUsageInPage, 2);
-            this.btnPartShowUsageInPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPartShowUsageInPage.Location = new System.Drawing.Point(166, 118);
-            this.btnPartShowUsageInPage.Margin = new System.Windows.Forms.Padding(6);
-            this.btnPartShowUsageInPage.Name = "btnPartShowUsageInPage";
-            this.btnPartShowUsageInPage.Size = new System.Drawing.Size(266, 38);
-            this.btnPartShowUsageInPage.TabIndex = 11;
-            this.btnPartShowUsageInPage.Text = "Page Part List";
-            this.btnPartShowUsageInPage.UseVisualStyleBackColor = true;
-            this.btnPartShowUsageInPage.Click += new System.EventHandler(this.btnPartShowUsageInPage_Click);
+            this.lblProject.AutoSize = true;
+            this.lblProject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblProject.Location = new System.Drawing.Point(27, 27);
+            this.lblProject.Margin = new System.Windows.Forms.Padding(7);
+            this.lblProject.Name = "lblProject";
+            this.lblProject.Size = new System.Drawing.Size(86, 36);
+            this.lblProject.TabIndex = 2;
+            this.lblProject.Text = "Project:";
+            this.lblProject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblPartPartUsage
+            // txtProject
             // 
-            this.lblPartPartUsage.AutoSize = true;
-            this.lblPartPartUsage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPartPartUsage.Location = new System.Drawing.Point(17, 118);
-            this.lblPartPartUsage.Margin = new System.Windows.Forms.Padding(6);
-            this.lblPartPartUsage.Name = "lblPartPartUsage";
-            this.lblPartPartUsage.Size = new System.Drawing.Size(137, 38);
-            this.lblPartPartUsage.TabIndex = 21;
-            this.lblPartPartUsage.Text = "Part In Pages:";
-            this.lblPartPartUsage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tableLayoutSample.SetColumnSpan(this.txtProject, 2);
+            this.txtProject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtProject.Location = new System.Drawing.Point(121, 35);
+            this.txtProject.Margin = new System.Windows.Forms.Padding(1, 15, 1, 10);
+            this.txtProject.Name = "txtProject";
+            this.txtProject.ReadOnly = true;
+            this.txtProject.Size = new System.Drawing.Size(632, 21);
+            this.txtProject.TabIndex = 3;
+            this.txtProject.Text = "EPLAN Project Full Path";
+            // 
+            // lblPage2HLF
+            // 
+            this.lblPage2HLF.AutoSize = true;
+            this.lblPage2HLF.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPage2HLF.Location = new System.Drawing.Point(15, 15);
+            this.lblPage2HLF.Margin = new System.Windows.Forms.Padding(5);
+            this.lblPage2HLF.Name = "lblPage2HLF";
+            this.lblPage2HLF.Size = new System.Drawing.Size(140, 30);
+            this.lblPage2HLF.TabIndex = 22;
+            this.lblPage2HLF.Text = "Higher Level Function:";
+            this.lblPage2HLF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPage2ML
+            // 
+            this.lblPage2ML.AutoSize = true;
+            this.lblPage2ML.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPage2ML.Location = new System.Drawing.Point(275, 15);
+            this.lblPage2ML.Margin = new System.Windows.Forms.Padding(5);
+            this.lblPage2ML.Name = "lblPage2ML";
+            this.lblPage2ML.Size = new System.Drawing.Size(115, 30);
+            this.lblPage2ML.TabIndex = 23;
+            this.lblPage2ML.Text = "Mounting Location:";
+            this.lblPage2ML.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtPage2HLF
+            // 
+            this.txtPage2HLF.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPage2HLF.Location = new System.Drawing.Point(163, 20);
+            this.txtPage2HLF.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.txtPage2HLF.MaxLength = 16;
+            this.txtPage2HLF.Name = "txtPage2HLF";
+            this.txtPage2HLF.Size = new System.Drawing.Size(104, 21);
+            this.txtPage2HLF.TabIndex = 24;
+            this.txtPage2HLF.Text = "HLF_01";
+            // 
+            // txtPage2ML
+            // 
+            this.txtPage2ML.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPage2ML.Location = new System.Drawing.Point(398, 20);
+            this.txtPage2ML.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.txtPage2ML.MaxLength = 16;
+            this.txtPage2ML.Name = "txtPage2ML";
+            this.txtPage2ML.Size = new System.Drawing.Size(119, 21);
+            this.txtPage2ML.TabIndex = 25;
+            this.txtPage2ML.Text = "ML_0A";
+            // 
+            // txtPage2PageName
+            // 
+            this.txtPage2PageName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPage2PageName.Location = new System.Drawing.Point(163, 60);
+            this.txtPage2PageName.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.txtPage2PageName.MaxLength = 16;
+            this.txtPage2PageName.Name = "txtPage2PageName";
+            this.txtPage2PageName.Size = new System.Drawing.Size(104, 21);
+            this.txtPage2PageName.TabIndex = 26;
+            this.txtPage2PageName.Text = "01";
+            // 
+            // txtPage2Description
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.txtPage2Description, 2);
+            this.txtPage2Description.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPage2Description.Location = new System.Drawing.Point(398, 60);
+            this.txtPage2Description.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.txtPage2Description.MaxLength = 16;
+            this.txtPage2Description.Name = "txtPage2Description";
+            this.txtPage2Description.Size = new System.Drawing.Size(229, 21);
+            this.txtPage2Description.TabIndex = 27;
+            this.txtPage2Description.Text = "Api Page Description";
             // 
             // ApiExtSampleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 551);
+            this.ClientSize = new System.Drawing.Size(764, 441);
             this.Controls.Add(this.tableLayoutSample);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ApiExtSampleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "::: API Extension Samples";
@@ -657,6 +877,9 @@
             this.tabPagePage.ResumeLayout(false);
             this.tableLayoutPage.ResumeLayout(false);
             this.tableLayoutPage.PerformLayout();
+            this.tabPagePage2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.tabPagePart.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -704,5 +927,20 @@
         private System.Windows.Forms.Button btnPartShowUsageInPage;
         private System.Windows.Forms.Label lblPartPages;
         private System.Windows.Forms.ComboBox cBoxPartPages;
+        private System.Windows.Forms.TabPage tabPagePage2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label lblPage2PageName;
+        private System.Windows.Forms.Label lblPage2PageDescription;
+        private System.Windows.Forms.Button btnPage2Delete;
+        private System.Windows.Forms.Button btnPage2Create;
+        private System.Windows.Forms.Button btnPage2Search;
+        private System.Windows.Forms.Label lblProjectCreatePages;
+        private System.Windows.Forms.ComboBox cBoxPageCreatePages;
+        private System.Windows.Forms.Label lblPage2ML;
+        private System.Windows.Forms.Label lblPage2HLF;
+        private System.Windows.Forms.TextBox txtPage2Description;
+        private System.Windows.Forms.TextBox txtPage2PageName;
+        private System.Windows.Forms.TextBox txtPage2ML;
+        private System.Windows.Forms.TextBox txtPage2HLF;
     }
 }
