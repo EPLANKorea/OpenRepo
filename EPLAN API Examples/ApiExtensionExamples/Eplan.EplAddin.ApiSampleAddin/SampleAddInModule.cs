@@ -1,3 +1,4 @@
+using Eplan.EplAddin.ApiSampleAddin.Events;
 using Eplan.EplApi.ApplicationFramework;
 using Eplan.EplApi.Gui;
 
@@ -11,8 +12,12 @@ namespace Eplan.EplAddin.ApiSampleAddin
 
     public class SampleAddInModule : IEplAddIn
     {
+        private SymbolPartChangedActionEventListener _symbolPartChangedEventListener = null;
+
         public bool OnInit()
         {
+            this._symbolPartChangedEventListener = new SymbolPartChangedActionEventListener(null);
+
             return true;
         }
 
