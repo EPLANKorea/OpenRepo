@@ -1,4 +1,5 @@
-﻿using Eplan.EplApi.DataModel;
+﻿using Eplan.EplAddin.ApiSampleAddin.Extensions;
+using Eplan.EplApi.DataModel;
 using System;
 
 namespace Eplan.EplAddin.ApiSampleAddin.ViewModels
@@ -24,7 +25,7 @@ namespace Eplan.EplAddin.ApiSampleAddin.ViewModels
         {
             PropertyValue pageDescription = this._page.Properties[Properties.Page.PAGE_NOMINATIOMN];
 
-            return string.Format("{0} <{1}>", this._page.Name, pageDescription.IsEmpty ? "..." : pageDescription.ToString());
+            return string.Format("{0} <{1}>", this._page.Name, pageDescription.IsEmpty ? "..." : pageDescription.ToLocaleText());
         }
     }
 }
