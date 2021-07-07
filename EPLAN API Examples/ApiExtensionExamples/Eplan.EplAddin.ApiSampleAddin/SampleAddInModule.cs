@@ -18,6 +18,7 @@ namespace Eplan.EplAddin.ApiSampleAddin
     {
         private ILog _logger = null;
         private string _originalAssemblyPath = string.Empty;
+        private string _shadowAssemblyPath = string.Empty;
 
         private SymbolPartChangedActionEventListener _symbolPartChangedEventListener = null;
 
@@ -25,12 +26,12 @@ namespace Eplan.EplAddin.ApiSampleAddin
         {
             try
             {
-                var shadowAssemblyPath = Path.GetDirectoryName(this.GetType().Assembly.Location);
+                this._shadowAssemblyPath = Path.GetDirectoryName(this.GetType().Assembly.Location);
 
                 InitializeLogging();
 
                 if (this._logger != null)
-                    this._logger.InfoFormat("Constructor(), initializing Add-In...[{0}]", shadowAssemblyPath);
+                    this._logger.InfoFormat("Constructor(), initializing Add-In...[{0}]", this._shadowAssemblyPath);
             }
             catch (Exception ex)
             {
@@ -134,7 +135,7 @@ namespace Eplan.EplAddin.ApiSampleAddin
         /// <returns>초기화에 사용된 Config File Full Path</returns>
         private string InitializeLogging()
         {
-            string configFileFullPath = ".\\Config\\log4net.config";
+            string configFileFullPath = Path.Combine(this._shadowAssemblyPath, ".\\Config\\log4net.config");
 
             LoggerFactory.InitializeLogging(configFileFullPath);
             this._logger = LoggerFactory.GetLogger(this.GetType());
