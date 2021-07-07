@@ -1,6 +1,10 @@
 using Eplan.EplAddin.ApiSampleAddin.Forms;
 using Eplan.EplAddin.ApiSampleAddin.Helpers;
+using Eplan.EplAddin.ApiSampleAddin.Logging;
 using Eplan.EplApi.ApplicationFramework;
+using Eplan.EplApi.Base;
+using log4net;
+using System;
 using System.Windows.Forms;
 
 namespace Eplan.EplAddin.ApiSampleAddin.Actions
@@ -11,6 +15,22 @@ namespace Eplan.EplAddin.ApiSampleAddin.Actions
     /// </summary>
     public class ActionApiExtWithGuiSamples : IEplAction
     {
+        private readonly ILog _logger = null;
+
+        public ActionApiExtWithGuiSamples()
+        {
+            try
+            {
+                this._logger = LoggerFactory.GetLogger(this.GetType());
+            }
+            catch (Exception ex)
+            {
+                SystemMessageHelper.HandleException(ex, MessageLevel.Error);
+
+                throw;
+            }
+        }
+
         /// <summary>
         /// Execution of the Action.  
         /// </summary>

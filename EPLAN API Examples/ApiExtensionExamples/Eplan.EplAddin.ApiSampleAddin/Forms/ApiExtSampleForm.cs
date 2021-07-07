@@ -1,8 +1,10 @@
 ﻿using Eplan.EplAddin.ApiSampleAddin.Helpers;
+using Eplan.EplAddin.ApiSampleAddin.Logging;
 using Eplan.EplAddin.ApiSampleAddin.ViewModels;
 using Eplan.EplApi.Base;
 using Eplan.EplApi.DataModel;
 using Eplan.EplApi.HEServices;
+using log4net;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,9 +19,12 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
 {
     public partial class ApiExtSampleForm : Form
     {
+        private readonly ILog _logger = null;
+
         public ApiExtSampleForm()
         {
             InitializeComponent();
+            this._logger = LoggerFactory.GetLogger(this.GetType());
         }
 
         #region Event Handlers
@@ -37,10 +42,16 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
         {
             try
             {
+                if (this._logger.IsDebugEnabled)
+                    this._logger.DebugFormat("ApiExtSampleForm_Shown(), ProjectLinkFilePath=[{0}]", ProjectHelper.GetCurrentProject().ProjectLinkFilePath);
+
                 this.txtProject.Text = ProjectHelper.GetCurrentProject().ProjectLinkFilePath;
             }
             catch (Exception ex)
             {
+                if (this._logger.IsErrorEnabled)
+                    this._logger.Error(string.Format("ApiExtSampleForm_Shown(), ex=[{0}]", ex.Message), ex);
+
                 MessageDisplayHelper.Show(ex.Message, "::: API Samples", EnumDecisionIcon.eEXCLAMATION);
             }
         }
