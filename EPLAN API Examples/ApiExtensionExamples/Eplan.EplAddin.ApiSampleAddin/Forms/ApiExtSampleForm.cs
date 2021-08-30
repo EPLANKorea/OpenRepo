@@ -1,8 +1,10 @@
-﻿using Eplan.EplAddin.ApiSampleAddin.Helpers;
+﻿using Eplan.EplAddin.ApiSampleAddin.Extensions;
+using Eplan.EplAddin.ApiSampleAddin.Helpers;
 using Eplan.EplAddin.ApiSampleAddin.Logging;
 using Eplan.EplAddin.ApiSampleAddin.ViewModels;
 using Eplan.EplApi.Base;
 using Eplan.EplApi.DataModel;
+using Eplan.EplApi.DataModel.E3D;
 using Eplan.EplApi.HEServices;
 using log4net;
 using System;
@@ -19,12 +21,15 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
 {
     public partial class ApiExtSampleForm : Form
     {
+        private readonly ISOCode _locale = null;
         private readonly ILog _logger = null;
 
         public ApiExtSampleForm()
         {
             InitializeComponent();
+
             this._logger = LoggerFactory.GetLogger(this.GetType());
+            this._locale = ApiExtHelpers.GetEplanGUILanguage();
         }
 
         #region Event Handlers
@@ -344,6 +349,9 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
 
             if (this.tabControlSamples.SelectedTab.Name.Equals("tabPagePart", StringComparison.OrdinalIgnoreCase))
                 RefreshProjectPages(this.cBoxPartPages);
+
+            if (this.tabControlSamples.SelectedTab.Name.Equals("tabPageLayoutSpace", StringComparison.OrdinalIgnoreCase))
+                RefreshLayoutSpaceMountingPanels(this.cBoxMountingPanels);
         }
 
         #endregion
@@ -458,6 +466,50 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             {
                 MessageDisplayHelper.Show(string.Format("Delete Page Failed!{0}{1}", Environment.NewLine, ex.Message), "::: Page Delete", EnumDecisionIcon.eEXCLAMATION);
             }
+        }
+
+        #endregion
+
+        #region 3D Layout Spaces
+
+        private void cBoxMountingPanels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cBoxPlaced3DObjects.SelectedIndex = -1;
+            cBoxPlaced3DObjects.Items.Clear();
+
+            if (cBoxMountingPanels.SelectedIndex == -1)
+                return;
+
+            EplanMountingPanelViewModel selectedItem = this.cBoxMountingPanels.SelectedItem as EplanMountingPanelViewModel;
+
+            if (selectedItem == null)
+                return;
+
+            IEnumerable<BarBase> barBaseList = GetLayoutSpaceBarBaseObjects(selectedItem.MountingPanel);
+
+            foreach (BarBase barBase in barBaseList)
+            {
+                cBoxPlaced3DObjects.Items.Add(new EplanBarBaseViewModel(barBase));
+            }
+        }
+
+        private void cBoxPlaced3DObjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.txtPlacement3DFullDT.Text = string.Empty;
+            this.txtPlacement3DLength.Text = string.Empty;
+            this.txtPlacement3DType.Text = string.Empty;
+
+            if (cBoxPlaced3DObjects.SelectedIndex == -1)
+                return;
+
+            EplanBarBaseViewModel selectedItem = this.cBoxPlaced3DObjects.SelectedItem as EplanBarBaseViewModel;
+
+            if (selectedItem == null)
+                return;
+
+            this.txtPlacement3DFullDT.Text = selectedItem.BarBase.Name;
+            this.txtPlacement3DLength.Text = selectedItem.BarBase.Length.ToString();
+            this.txtPlacement3DType.Text = selectedItem.BarBase.Properties[Properties.Placement3D.FUNC_COMPONENTTYPE].ToLocaleText(this._locale);
         }
 
         #endregion
@@ -621,6 +673,112 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             {
                 page.Remove();
             }
+        }
+
+
+        #endregion
+
+        #region Layout Space Related Methods
+
+        private void RefreshLayoutSpaceMountingPanels(ComboBox mountingPanelListBox)
+        {
+            mountingPanelListBox.SelectedIndex = -1;
+            mountingPanelListBox.Items.Clear();
+
+            if (string.IsNullOrWhiteSpace(this.txtProject.Text))
+                return;
+
+            Project project = ProjectHelper.GetProject(this.txtProject.Text);
+
+            if (project == null)
+                return;
+
+            IEnumerable<MountingPanel> mountingPanelList = GetMountingPanelList(project);
+
+            foreach (MountingPanel mountingPanel in mountingPanelList)
+            {
+                mountingPanelListBox.Items.Add(new EplanMountingPanelViewModel(mountingPanel));
+            }
+        }
+
+        /// <summary>
+        /// Get All Mounting Panels from Project InstallationSpaces
+        /// </summary>
+        /// <param name="project"></param>
+        /// <returns></returns>
+        private IEnumerable<MountingPanel> GetMountingPanelList(Project project)
+        {
+            List<MountingPanel> toReturn = new List<MountingPanel>();
+
+            foreach (InstallationSpace installationSpace in project.InstallationSpaces)
+            {
+                toReturn.AddRange(GetMountingPanels(installationSpace));
+            }
+
+            return toReturn;
+        }
+
+        /// <summary>
+        /// Get All Mounting Panels from a InstallationSpace
+        /// </summary>
+        /// <param name="installationSpace"></param>
+        /// <returns></returns>
+        private IEnumerable<MountingPanel> GetMountingPanels(Placement3D parentPlacement3D)
+        {
+            List<MountingPanel> toReturn = new List<MountingPanel>();
+
+            if (parentPlacement3D.Children.Length == 0)
+                return toReturn;
+
+            var mountingPanels = parentPlacement3D.Children.OfType<MountingPanel>();
+
+            // 01. Get the MountingPanel among Children
+            if (mountingPanels != null && mountingPanels.Count() > 0)
+                toReturn.AddRange(mountingPanels);
+
+            // 02. Get the MountingPanel from Children of a Child
+            foreach (Placement3D placement3D in parentPlacement3D.Children)
+            {
+                // Skip for MountingPanel itself
+                if (placement3D is MountingPanel)
+                    continue;
+
+                toReturn.AddRange(GetMountingPanels(placement3D));
+            }
+
+            return toReturn;
+        }
+
+        /// <summary>
+        /// Get the BarBase list from Childern of MountingPanel
+        /// - BusBar
+        /// - Duct
+        /// - MountingRail
+        /// </summary>
+        /// <param name="mountingPanel"></param>
+        /// <returns></returns>
+        private IEnumerable<BarBase> GetLayoutSpaceBarBaseObjects(Placement3D parentPlacement3D)
+        {
+            List<BarBase> toReturn = new List<BarBase>();
+
+            if (parentPlacement3D.Children.Length == 0)
+                return toReturn;
+
+            var barBaseList = parentPlacement3D.Children.OfType<BarBase>();
+
+            // Get the BarBase among Children
+            if (barBaseList != null && barBaseList.Count() > 0) {
+                toReturn.AddRange(barBaseList);
+            }
+            else {
+                // Get the BarBase from Children of a Child
+                foreach (Placement3D placement3D in parentPlacement3D.Children)
+                {
+                    toReturn.AddRange(GetLayoutSpaceBarBaseObjects(placement3D));
+                }
+            }
+
+            return toReturn;
         }
 
         #endregion

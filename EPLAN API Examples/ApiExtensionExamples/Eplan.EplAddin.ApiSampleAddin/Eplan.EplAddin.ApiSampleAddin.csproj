@@ -108,6 +108,8 @@
     <Compile Include="Forms\ApiExtSampleForm.Designer.cs">
       <DependentUpon>ApiExtSampleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\EplanBarBaseViewModel.cs" />
+    <Compile Include="ViewModels\EplanMountingPanelViewModel.cs" />
     <Compile Include="Helpers\ApiExtHelpers.cs" />
     <Compile Include="Helpers\MessageDisplayHelper.cs" />
     <Compile Include="Helpers\ProjectHelper.cs" />

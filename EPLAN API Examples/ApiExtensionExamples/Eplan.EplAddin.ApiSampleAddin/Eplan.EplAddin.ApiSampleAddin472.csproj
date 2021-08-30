@@ -120,6 +120,8 @@
     <Compile Include="Logging\LoggerFactory.cs" />
     <Compile Include="SampleAddInModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EplanBarBaseViewModel.cs" />
+    <Compile Include="ViewModels\EplanMountingPanelViewModel.cs" />
     <Compile Include="ViewModels\EplanPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
