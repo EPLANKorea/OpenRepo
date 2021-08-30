@@ -93,6 +93,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.lblProject = new System.Windows.Forms.Label();
             this.txtProject = new System.Windows.Forms.TextBox();
+            this.btnGoToGraphics = new System.Windows.Forms.Button();
             this.tableLayoutSample.SuspendLayout();
             this.tabControlSamples.SuspendLayout();
             this.tabPageProject.SuspendLayout();
@@ -868,6 +869,7 @@
             this.tableLayoutLayoutSpace.Controls.Add(this.lblMountingPanels, 1, 1);
             this.tableLayoutLayoutSpace.Controls.Add(this.cBoxMountingPanels, 2, 1);
             this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DFullDT, 2, 4);
+            this.tableLayoutLayoutSpace.Controls.Add(this.btnGoToGraphics, 4, 5);
             this.tableLayoutLayoutSpace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutLayoutSpace.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutLayoutSpace.Name = "tableLayoutLayoutSpace";
@@ -1050,6 +1052,20 @@
             this.txtProject.TabIndex = 3;
             this.txtProject.Text = "EPLAN Project Full Path";
             // 
+            // btnGoToGraphics
+            // 
+            this.tableLayoutLayoutSpace.SetColumnSpan(this.btnGoToGraphics, 2);
+            this.btnGoToGraphics.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGoToGraphics.Enabled = false;
+            this.btnGoToGraphics.Location = new System.Drawing.Point(390, 175);
+            this.btnGoToGraphics.Margin = new System.Windows.Forms.Padding(5);
+            this.btnGoToGraphics.Name = "btnGoToGraphics";
+            this.btnGoToGraphics.Size = new System.Drawing.Size(235, 30);
+            this.btnGoToGraphics.TabIndex = 29;
+            this.btnGoToGraphics.Text = "GoTo Graphics";
+            this.btnGoToGraphics.UseVisualStyleBackColor = true;
+            this.btnGoToGraphics.Click += new System.EventHandler(this.btnGoToGraphics_Click);
+            // 
             // ApiExtSampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1150,5 +1166,6 @@
         private System.Windows.Forms.TextBox txtPlacement3DType;
         private System.Windows.Forms.Label lblPlacement3DType;
         private System.Windows.Forms.TextBox txtPlacement3DFullDT;
+        private System.Windows.Forms.Button btnGoToGraphics;
     }
 }

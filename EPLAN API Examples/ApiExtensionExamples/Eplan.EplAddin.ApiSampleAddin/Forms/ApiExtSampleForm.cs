@@ -499,6 +499,8 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             this.txtPlacement3DLength.Text = string.Empty;
             this.txtPlacement3DType.Text = string.Empty;
 
+            this.btnGoToGraphics.Enabled = false;
+
             if (cBoxPlaced3DObjects.SelectedIndex == -1)
                 return;
 
@@ -510,6 +512,21 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             this.txtPlacement3DFullDT.Text = selectedItem.BarBase.Name;
             this.txtPlacement3DLength.Text = selectedItem.BarBase.Length.ToString();
             this.txtPlacement3DType.Text = selectedItem.BarBase.Properties[Properties.Placement3D.FUNC_COMPONENTTYPE].ToLocaleText(this._locale);
+
+            this.btnGoToGraphics.Enabled = true;
+        }
+
+        private void btnGoToGraphics_Click(object sender, EventArgs e)
+        {
+            if (cBoxPlaced3DObjects.SelectedIndex == -1)
+                return;
+
+            EplanBarBaseViewModel selectedItem = this.cBoxPlaced3DObjects.SelectedItem as EplanBarBaseViewModel;
+
+            if (selectedItem == null)
+                return;
+
+            ApiExtHelpers.OpenInstallationSpaceWithPlacement3D(selectedItem.BarBase);
         }
 
         #endregion
