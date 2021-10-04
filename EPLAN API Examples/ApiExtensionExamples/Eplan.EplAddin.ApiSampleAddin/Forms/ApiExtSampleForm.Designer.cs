@@ -90,10 +90,24 @@
             this.lblMountingPanels = new System.Windows.Forms.Label();
             this.cBoxMountingPanels = new System.Windows.Forms.ComboBox();
             this.txtPlacement3DFullDT = new System.Windows.Forms.TextBox();
+            this.btnGoToGraphics = new System.Windows.Forms.Button();
+            this.tabPageBOM = new System.Windows.Forms.TabPage();
+            this.tableLayoutBOM = new System.Windows.Forms.TableLayoutPanel();
+            this.btnBOMReplacePart = new System.Windows.Forms.Button();
+            this.txtBOMPartQuantity = new System.Windows.Forms.TextBox();
+            this.cBoxBOMParts = new System.Windows.Forms.ComboBox();
+            this.lblBOMParts = new System.Windows.Forms.Label();
+            this.cBoxBOMFunctions = new System.Windows.Forms.ComboBox();
+            this.lblBOMFunctions = new System.Windows.Forms.Label();
+            this.lblBOMPartInfo = new System.Windows.Forms.Label();
+            this.btnBOMDeletePart = new System.Windows.Forms.Button();
+            this.btnBOMAddNewPart = new System.Windows.Forms.Button();
+            this.lblBOMPages = new System.Windows.Forms.Label();
+            this.cBoxBOMPages = new System.Windows.Forms.ComboBox();
+            this.txtBOMPartNumber = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.lblProject = new System.Windows.Forms.Label();
             this.txtProject = new System.Windows.Forms.TextBox();
-            this.btnGoToGraphics = new System.Windows.Forms.Button();
             this.tableLayoutSample.SuspendLayout();
             this.tabControlSamples.SuspendLayout();
             this.tabPageProject.SuspendLayout();
@@ -106,6 +120,8 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPageLayoutSpace.SuspendLayout();
             this.tableLayoutLayoutSpace.SuspendLayout();
+            this.tabPageBOM.SuspendLayout();
+            this.tableLayoutBOM.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutSample
@@ -139,6 +155,7 @@
             this.tabControlSamples.Controls.Add(this.tabPagePage2);
             this.tabControlSamples.Controls.Add(this.tabPagePart);
             this.tabControlSamples.Controls.Add(this.tabPageLayoutSpace);
+            this.tabControlSamples.Controls.Add(this.tabPageBOM);
             this.tabControlSamples.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlSamples.Location = new System.Drawing.Point(3, 73);
             this.tabControlSamples.Name = "tabControlSamples";
@@ -1016,6 +1033,236 @@
             this.txtPlacement3DFullDT.Size = new System.Drawing.Size(231, 25);
             this.txtPlacement3DFullDT.TabIndex = 24;
             // 
+            // btnGoToGraphics
+            // 
+            this.tableLayoutLayoutSpace.SetColumnSpan(this.btnGoToGraphics, 2);
+            this.btnGoToGraphics.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGoToGraphics.Enabled = false;
+            this.btnGoToGraphics.Location = new System.Drawing.Point(390, 175);
+            this.btnGoToGraphics.Margin = new System.Windows.Forms.Padding(5);
+            this.btnGoToGraphics.Name = "btnGoToGraphics";
+            this.btnGoToGraphics.Size = new System.Drawing.Size(235, 30);
+            this.btnGoToGraphics.TabIndex = 29;
+            this.btnGoToGraphics.Text = "GoTo Graphics";
+            this.btnGoToGraphics.UseVisualStyleBackColor = true;
+            this.btnGoToGraphics.Click += new System.EventHandler(this.btnGoToGraphics_Click);
+            // 
+            // tabPageBOM
+            // 
+            this.tabPageBOM.Controls.Add(this.tableLayoutBOM);
+            this.tabPageBOM.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBOM.Name = "tabPageBOM";
+            this.tabPageBOM.Size = new System.Drawing.Size(750, 289);
+            this.tabPageBOM.TabIndex = 5;
+            this.tabPageBOM.Text = "Part/BOM";
+            this.tabPageBOM.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutBOM
+            // 
+            this.tableLayoutBOM.ColumnCount = 11;
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutBOM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutBOM.Controls.Add(this.btnBOMReplacePart, 6, 4);
+            this.tableLayoutBOM.Controls.Add(this.txtBOMPartQuantity, 4, 5);
+            this.tableLayoutBOM.Controls.Add(this.cBoxBOMParts, 2, 3);
+            this.tableLayoutBOM.Controls.Add(this.lblBOMParts, 1, 3);
+            this.tableLayoutBOM.Controls.Add(this.cBoxBOMFunctions, 2, 2);
+            this.tableLayoutBOM.Controls.Add(this.lblBOMFunctions, 1, 2);
+            this.tableLayoutBOM.Controls.Add(this.lblBOMPartInfo, 1, 5);
+            this.tableLayoutBOM.Controls.Add(this.btnBOMDeletePart, 4, 4);
+            this.tableLayoutBOM.Controls.Add(this.btnBOMAddNewPart, 2, 4);
+            this.tableLayoutBOM.Controls.Add(this.lblBOMPages, 1, 1);
+            this.tableLayoutBOM.Controls.Add(this.cBoxBOMPages, 2, 1);
+            this.tableLayoutBOM.Controls.Add(this.txtBOMPartNumber, 2, 5);
+            this.tableLayoutBOM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutBOM.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutBOM.Name = "tableLayoutBOM";
+            this.tableLayoutBOM.RowCount = 8;
+            this.tableLayoutBOM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutBOM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutBOM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutBOM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutBOM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutBOM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutBOM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutBOM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutBOM.Size = new System.Drawing.Size(750, 289);
+            this.tableLayoutBOM.TabIndex = 3;
+            // 
+            // btnBOMReplacePart
+            // 
+            this.tableLayoutBOM.SetColumnSpan(this.btnBOMReplacePart, 3);
+            this.btnBOMReplacePart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBOMReplacePart.Location = new System.Drawing.Point(506, 135);
+            this.btnBOMReplacePart.Margin = new System.Windows.Forms.Padding(5);
+            this.btnBOMReplacePart.Name = "btnBOMReplacePart";
+            this.btnBOMReplacePart.Size = new System.Drawing.Size(159, 30);
+            this.btnBOMReplacePart.TabIndex = 28;
+            this.btnBOMReplacePart.Text = "Replace with New Part";
+            this.btnBOMReplacePart.UseVisualStyleBackColor = true;
+            this.btnBOMReplacePart.Click += new System.EventHandler(this.btnBOMReplacePart_Click);
+            // 
+            // txtBOMPartQuantity
+            // 
+            this.txtBOMPartQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBOMPartQuantity.Location = new System.Drawing.Point(337, 180);
+            this.txtBOMPartQuantity.Margin = new System.Windows.Forms.Padding(10);
+            this.txtBOMPartQuantity.Name = "txtBOMPartQuantity";
+            this.txtBOMPartQuantity.ReadOnly = true;
+            this.txtBOMPartQuantity.Size = new System.Drawing.Size(67, 21);
+            this.txtBOMPartQuantity.TabIndex = 27;
+            this.txtBOMPartQuantity.Text = "Qty.";
+            this.txtBOMPartQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // cBoxBOMParts
+            // 
+            this.tableLayoutBOM.SetColumnSpan(this.cBoxBOMParts, 7);
+            this.cBoxBOMParts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cBoxBOMParts.DropDownHeight = 120;
+            this.cBoxBOMParts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxBOMParts.Font = new System.Drawing.Font("Gulim", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cBoxBOMParts.FormattingEnabled = true;
+            this.cBoxBOMParts.IntegralHeight = false;
+            this.cBoxBOMParts.ItemHeight = 13;
+            this.cBoxBOMParts.Location = new System.Drawing.Point(145, 100);
+            this.cBoxBOMParts.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.cBoxBOMParts.MaxDropDownItems = 9;
+            this.cBoxBOMParts.Name = "cBoxBOMParts";
+            this.cBoxBOMParts.Size = new System.Drawing.Size(520, 21);
+            this.cBoxBOMParts.TabIndex = 25;
+            this.cBoxBOMParts.SelectedIndexChanged += new System.EventHandler(this.cBoxBOMParts_SelectedIndexChanged);
+            // 
+            // lblBOMParts
+            // 
+            this.lblBOMParts.AutoSize = true;
+            this.lblBOMParts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBOMParts.Location = new System.Drawing.Point(15, 95);
+            this.lblBOMParts.Margin = new System.Windows.Forms.Padding(5);
+            this.lblBOMParts.Name = "lblBOMParts";
+            this.lblBOMParts.Size = new System.Drawing.Size(120, 30);
+            this.lblBOMParts.TabIndex = 24;
+            this.lblBOMParts.Text = "BOM Parts:";
+            this.lblBOMParts.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cBoxBOMFunctions
+            // 
+            this.tableLayoutBOM.SetColumnSpan(this.cBoxBOMFunctions, 7);
+            this.cBoxBOMFunctions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cBoxBOMFunctions.DropDownHeight = 120;
+            this.cBoxBOMFunctions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxBOMFunctions.Font = new System.Drawing.Font("Gulim", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cBoxBOMFunctions.FormattingEnabled = true;
+            this.cBoxBOMFunctions.IntegralHeight = false;
+            this.cBoxBOMFunctions.ItemHeight = 13;
+            this.cBoxBOMFunctions.Location = new System.Drawing.Point(145, 60);
+            this.cBoxBOMFunctions.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.cBoxBOMFunctions.MaxDropDownItems = 9;
+            this.cBoxBOMFunctions.Name = "cBoxBOMFunctions";
+            this.cBoxBOMFunctions.Size = new System.Drawing.Size(520, 21);
+            this.cBoxBOMFunctions.TabIndex = 23;
+            this.cBoxBOMFunctions.SelectedIndexChanged += new System.EventHandler(this.cBoxBOMFunctions_SelectedIndexChanged);
+            // 
+            // lblBOMFunctions
+            // 
+            this.lblBOMFunctions.AutoSize = true;
+            this.lblBOMFunctions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBOMFunctions.Location = new System.Drawing.Point(15, 55);
+            this.lblBOMFunctions.Margin = new System.Windows.Forms.Padding(5);
+            this.lblBOMFunctions.Name = "lblBOMFunctions";
+            this.lblBOMFunctions.Size = new System.Drawing.Size(120, 30);
+            this.lblBOMFunctions.TabIndex = 22;
+            this.lblBOMFunctions.Text = "Functions:";
+            this.lblBOMFunctions.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblBOMPartInfo
+            // 
+            this.lblBOMPartInfo.AutoSize = true;
+            this.lblBOMPartInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBOMPartInfo.Location = new System.Drawing.Point(15, 175);
+            this.lblBOMPartInfo.Margin = new System.Windows.Forms.Padding(5);
+            this.lblBOMPartInfo.Name = "lblBOMPartInfo";
+            this.lblBOMPartInfo.Size = new System.Drawing.Size(120, 30);
+            this.lblBOMPartInfo.TabIndex = 21;
+            this.lblBOMPartInfo.Text = "Part In BOM:";
+            this.lblBOMPartInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnBOMDeletePart
+            // 
+            this.tableLayoutBOM.SetColumnSpan(this.btnBOMDeletePart, 2);
+            this.btnBOMDeletePart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBOMDeletePart.Location = new System.Drawing.Point(332, 135);
+            this.btnBOMDeletePart.Margin = new System.Windows.Forms.Padding(5);
+            this.btnBOMDeletePart.Name = "btnBOMDeletePart";
+            this.btnBOMDeletePart.Size = new System.Drawing.Size(164, 30);
+            this.btnBOMDeletePart.TabIndex = 12;
+            this.btnBOMDeletePart.Text = "Remove Part from BOM";
+            this.btnBOMDeletePart.UseVisualStyleBackColor = true;
+            this.btnBOMDeletePart.Click += new System.EventHandler(this.btnBOMDeletePart_Click);
+            // 
+            // btnBOMAddNewPart
+            // 
+            this.tableLayoutBOM.SetColumnSpan(this.btnBOMAddNewPart, 2);
+            this.btnBOMAddNewPart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBOMAddNewPart.Location = new System.Drawing.Point(145, 135);
+            this.btnBOMAddNewPart.Margin = new System.Windows.Forms.Padding(5);
+            this.btnBOMAddNewPart.Name = "btnBOMAddNewPart";
+            this.btnBOMAddNewPart.Size = new System.Drawing.Size(177, 30);
+            this.btnBOMAddNewPart.TabIndex = 11;
+            this.btnBOMAddNewPart.Text = "Add New Part to BOM";
+            this.btnBOMAddNewPart.UseVisualStyleBackColor = true;
+            this.btnBOMAddNewPart.Click += new System.EventHandler(this.btnBOMAddNewPart_Click);
+            // 
+            // lblBOMPages
+            // 
+            this.lblBOMPages.AutoSize = true;
+            this.lblBOMPages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBOMPages.Location = new System.Drawing.Point(15, 15);
+            this.lblBOMPages.Margin = new System.Windows.Forms.Padding(5);
+            this.lblBOMPages.Name = "lblBOMPages";
+            this.lblBOMPages.Size = new System.Drawing.Size(120, 30);
+            this.lblBOMPages.TabIndex = 0;
+            this.lblBOMPages.Text = "Project Pages:";
+            this.lblBOMPages.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cBoxBOMPages
+            // 
+            this.tableLayoutBOM.SetColumnSpan(this.cBoxBOMPages, 7);
+            this.cBoxBOMPages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cBoxBOMPages.DropDownHeight = 120;
+            this.cBoxBOMPages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxBOMPages.Font = new System.Drawing.Font("Gulim", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cBoxBOMPages.FormattingEnabled = true;
+            this.cBoxBOMPages.IntegralHeight = false;
+            this.cBoxBOMPages.ItemHeight = 13;
+            this.cBoxBOMPages.Location = new System.Drawing.Point(145, 20);
+            this.cBoxBOMPages.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.cBoxBOMPages.MaxDropDownItems = 9;
+            this.cBoxBOMPages.Name = "cBoxBOMPages";
+            this.cBoxBOMPages.Size = new System.Drawing.Size(520, 21);
+            this.cBoxBOMPages.TabIndex = 13;
+            this.cBoxBOMPages.SelectedIndexChanged += new System.EventHandler(this.cBoxBOMPages_SelectedIndexChanged);
+            // 
+            // txtBOMPartNumber
+            // 
+            this.tableLayoutBOM.SetColumnSpan(this.txtBOMPartNumber, 2);
+            this.txtBOMPartNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBOMPartNumber.Location = new System.Drawing.Point(150, 180);
+            this.txtBOMPartNumber.Margin = new System.Windows.Forms.Padding(10);
+            this.txtBOMPartNumber.Name = "txtBOMPartNumber";
+            this.txtBOMPartNumber.ReadOnly = true;
+            this.txtBOMPartNumber.Size = new System.Drawing.Size(167, 21);
+            this.txtBOMPartNumber.TabIndex = 26;
+            this.txtBOMPartNumber.Text = "Part Number";
+            // 
             // btnOK
             // 
             this.btnOK.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1052,20 +1299,6 @@
             this.txtProject.TabIndex = 3;
             this.txtProject.Text = "EPLAN Project Full Path";
             // 
-            // btnGoToGraphics
-            // 
-            this.tableLayoutLayoutSpace.SetColumnSpan(this.btnGoToGraphics, 2);
-            this.btnGoToGraphics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGoToGraphics.Enabled = false;
-            this.btnGoToGraphics.Location = new System.Drawing.Point(390, 175);
-            this.btnGoToGraphics.Margin = new System.Windows.Forms.Padding(5);
-            this.btnGoToGraphics.Name = "btnGoToGraphics";
-            this.btnGoToGraphics.Size = new System.Drawing.Size(235, 30);
-            this.btnGoToGraphics.TabIndex = 29;
-            this.btnGoToGraphics.Text = "GoTo Graphics";
-            this.btnGoToGraphics.UseVisualStyleBackColor = true;
-            this.btnGoToGraphics.Click += new System.EventHandler(this.btnGoToGraphics_Click);
-            // 
             // ApiExtSampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1095,6 +1328,9 @@
             this.tabPageLayoutSpace.ResumeLayout(false);
             this.tableLayoutLayoutSpace.ResumeLayout(false);
             this.tableLayoutLayoutSpace.PerformLayout();
+            this.tabPageBOM.ResumeLayout(false);
+            this.tableLayoutBOM.ResumeLayout(false);
+            this.tableLayoutBOM.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1167,5 +1403,19 @@
         private System.Windows.Forms.Label lblPlacement3DType;
         private System.Windows.Forms.TextBox txtPlacement3DFullDT;
         private System.Windows.Forms.Button btnGoToGraphics;
+        private System.Windows.Forms.TabPage tabPageBOM;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutBOM;
+        private System.Windows.Forms.TextBox txtBOMPartQuantity;
+        private System.Windows.Forms.ComboBox cBoxBOMParts;
+        private System.Windows.Forms.Label lblBOMParts;
+        private System.Windows.Forms.ComboBox cBoxBOMFunctions;
+        private System.Windows.Forms.Label lblBOMFunctions;
+        private System.Windows.Forms.Label lblBOMPartInfo;
+        private System.Windows.Forms.Button btnBOMDeletePart;
+        private System.Windows.Forms.Button btnBOMAddNewPart;
+        private System.Windows.Forms.Label lblBOMPages;
+        private System.Windows.Forms.ComboBox cBoxBOMPages;
+        private System.Windows.Forms.TextBox txtBOMPartNumber;
+        private System.Windows.Forms.Button btnBOMReplacePart;
     }
 }

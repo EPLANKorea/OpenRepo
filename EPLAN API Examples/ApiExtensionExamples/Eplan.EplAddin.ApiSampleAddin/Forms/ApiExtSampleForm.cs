@@ -6,6 +6,7 @@ using Eplan.EplApi.Base;
 using Eplan.EplApi.DataModel;
 using Eplan.EplApi.DataModel.E3D;
 using Eplan.EplApi.HEServices;
+using Eplan.EplApi.System;
 using log4net;
 using System;
 using System.Collections;
@@ -352,6 +353,9 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
 
             if (this.tabControlSamples.SelectedTab.Name.Equals("tabPageLayoutSpace", StringComparison.OrdinalIgnoreCase))
                 RefreshLayoutSpaceMountingPanels(this.cBoxMountingPanels);
+
+            if (this.tabControlSamples.SelectedTab.Name.Equals("tabPageBOM", StringComparison.OrdinalIgnoreCase))
+                RefreshProjectPages(this.cBoxBOMPages);
         }
 
         #endregion
@@ -527,6 +531,170 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
                 return;
 
             ApiExtHelpers.OpenInstallationSpaceWithPlacement3D(selectedItem.BarBase);
+        }
+
+        #endregion
+
+        #region Part/BOM via API
+
+        private void cBoxBOMPages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cBoxBOMFunctions.SelectedIndex = -1;
+            cBoxBOMFunctions.Items.Clear();
+
+            if (cBoxBOMPages.SelectedIndex == -1)
+                return;
+
+            Page targetPage = ((EplanPageViewModel)this.cBoxBOMPages.SelectedItem).Page;
+
+            if (targetPage == null)
+                return;
+
+            foreach (Function function in targetPage.Functions.Where(f => f.CanHaveBOMPart()))
+            {
+                cBoxBOMFunctions.Items.Add(new EplanFunctionViewModel(function));
+            }
+        }
+
+        private void cBoxBOMFunctions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cBoxBOMParts.SelectedIndex = -1;
+            cBoxBOMParts.Items.Clear();
+
+            if (cBoxBOMFunctions.SelectedIndex == -1)
+                return;
+
+            Function targetFunction = ((EplanFunctionViewModel)this.cBoxBOMFunctions.SelectedItem).Function;
+
+            if (targetFunction == null)
+                return;
+
+            foreach (ArticleReference articleReference in targetFunction.ArticleReferences)
+            {
+                cBoxBOMParts.Items.Add(new EplanArticleReferenceViewModel(articleReference));
+            }
+        }
+
+        private void cBoxBOMParts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.txtBOMPartNumber.Text = string.Empty;
+            this.txtBOMPartQuantity.Text = string.Empty;
+
+            if (cBoxBOMParts.SelectedIndex == -1)
+                return;
+
+            EplanArticleReferenceViewModel articleReference = this.cBoxBOMParts.SelectedItem as EplanArticleReferenceViewModel;
+
+            if (articleReference == null)
+                return;
+
+            this.txtBOMPartNumber.Text = articleReference.PartNumber;
+            this.txtBOMPartQuantity.Text = articleReference.Quantity?.ToString() ?? string.Empty;
+        }
+
+        private void btnBOMDeletePart_Click(object sender, EventArgs e)
+        {
+            if (cBoxBOMParts.SelectedIndex == -1)
+                return;
+
+            EplanArticleReferenceViewModel articleReference = this.cBoxBOMParts.SelectedItem as EplanArticleReferenceViewModel;
+
+            if (articleReference == null)
+                return;
+
+            Function targetFunction = ((EplanFunctionViewModel)this.cBoxBOMFunctions.SelectedItem).Function;
+
+            if (targetFunction == null)
+                return;
+
+            targetFunction.RemoveArticleReference(articleReference.ArticleReference);
+
+            int functionIndex = cBoxBOMFunctions.SelectedIndex;
+            cBoxBOMFunctions.SelectedIndex = -1;
+            cBoxBOMFunctions.SelectedIndex = functionIndex;
+
+            // Refresh Part Reference List
+            RefreshPartReferenceList(this.cBoxBOMFunctions);
+
+            // Refresh Drawing
+            ApiExtHelpers.RefreshDrawing();
+        }
+
+        private void btnBOMAddNewPart_Click(object sender, EventArgs e)
+        {
+            Function targetFunction = ((EplanFunctionViewModel)this.cBoxBOMFunctions.SelectedItem).Function;
+
+            if (targetFunction == null)
+                return;
+
+            string selectedPartNumber = string.Empty;
+            string selectedPartVariant = string.Empty;
+
+            new EplApplication().ShowPartSelectionDialog(ref selectedPartNumber, ref selectedPartVariant);
+
+            if (this._logger.IsDebugEnabled)
+                this._logger.DebugFormat("btnBOMAddNewPart_Click(), selectedPartNumber=[{0}], selectedPartVariant=[{1}]", selectedPartNumber, selectedPartVariant);
+
+            if (string.IsNullOrEmpty(selectedPartNumber))
+                return;
+
+            if (string.IsNullOrEmpty(selectedPartVariant))
+                targetFunction.AddArticleReference(selectedPartNumber);
+            else
+                targetFunction.AddArticleReference(selectedPartNumber, selectedPartVariant, 1, true);
+
+            // Refresh Part Reference List
+            RefreshPartReferenceList(this.cBoxBOMFunctions);
+
+            // Refresh Drawing
+            ApiExtHelpers.RefreshDrawing();
+        }
+
+        private void btnBOMReplacePart_Click(object sender, EventArgs e)
+        {
+            // 01. Get Current Selected Part Reference
+            if (cBoxBOMParts.SelectedIndex == -1)
+                return;
+
+            EplanArticleReferenceViewModel articleReference = this.cBoxBOMParts.SelectedItem as EplanArticleReferenceViewModel;
+
+            if (articleReference == null)
+                return;
+
+            // 02. Get Current Function to replce against
+            Function targetFunction = ((EplanFunctionViewModel)this.cBoxBOMFunctions.SelectedItem).Function;
+
+            if (targetFunction == null)
+                return;
+
+            // 03. Get New Part
+            string selectedPartNumber = string.Empty;
+            string selectedPartVariant = string.Empty;
+
+            new EplApplication().ShowPartSelectionDialog(ref selectedPartNumber, ref selectedPartVariant);
+
+            if (this._logger.IsDebugEnabled)
+                this._logger.DebugFormat("btnBOMReplacePart_Click(), selectedPartNumber=[{0}], selectedPartVariant=[{1}]", selectedPartNumber, selectedPartVariant);
+
+            if (string.IsNullOrEmpty(selectedPartNumber))
+                return;
+
+            // 04. Info from Current Part Reference
+            int articleReferenceIndex = articleReference.ArticleReference.ReferencePos;
+
+            if (this._logger.IsDebugEnabled)
+                this._logger.DebugFormat("btnBOMReplacePart_Click(), articleReference.PartNr=[{0}], articleReference.Index=[{1}]",
+                                          articleReference.ArticleReference.PartNr, articleReferenceIndex);
+
+            // 05. Replace the Part Number with New One
+            articleReference.ArticleReference.PartNr = selectedPartNumber;
+            articleReference.ArticleReference.StoreToObject();
+
+            // 06. Refresh Part Reference List
+            RefreshPartReferenceList(this.cBoxBOMFunctions);
+
+            // 07. Refresh Drawing
+            ApiExtHelpers.RefreshDrawing();
         }
 
         #endregion
@@ -796,6 +964,17 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             }
 
             return toReturn;
+        }
+
+        #endregion
+
+        #region Part/BOM vai API Related Methods
+
+        private void RefreshPartReferenceList(ComboBox functionListBox)
+        {
+            int functionIndex = functionListBox.SelectedIndex;
+            functionListBox.SelectedIndex = -1;
+            functionListBox.SelectedIndex = functionIndex;
         }
 
         #endregion

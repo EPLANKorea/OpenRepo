@@ -63,6 +63,7 @@
     <Reference Include="Eplan.EplApi.HEServicesu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Eplan.EplApi.Systemu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=57aaa27e22f7b107, processorArchitecture=AMD64" />
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
       <Private>True</Private>
@@ -99,6 +100,7 @@
     <Compile Include="Actions\ActionApiExtWithGuiSamples.cs" />
     <Compile Include="Actions\FirstAction.cs" />
     <Compile Include="Events\SymbolPartChangedActionEventListener.cs" />
+    <Compile Include="Extensions\FunctionExtension.cs" />
     <Compile Include="Extensions\FunctionImageExtension.cs" />
     <Compile Include="Extensions\PropertyValueExtension.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
@@ -108,7 +110,9 @@
     <Compile Include="Forms\ApiExtSampleForm.Designer.cs">
       <DependentUpon>ApiExtSampleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\EplanArticleReferenceViewModel.cs" />
     <Compile Include="ViewModels\EplanBarBaseViewModel.cs" />
+    <Compile Include="ViewModels\EplanFunctionViewModel.cs" />
     <Compile Include="ViewModels\EplanMountingPanelViewModel.cs" />
     <Compile Include="Helpers\ApiExtHelpers.cs" />
     <Compile Include="Helpers\MessageDisplayHelper.cs" />
