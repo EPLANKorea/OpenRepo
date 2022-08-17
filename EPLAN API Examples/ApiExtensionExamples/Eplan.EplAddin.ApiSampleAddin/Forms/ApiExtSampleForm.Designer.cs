@@ -108,6 +108,15 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.lblProject = new System.Windows.Forms.Label();
             this.txtProject = new System.Windows.Forms.TextBox();
+            this.lblPlacement3DPosition = new System.Windows.Forms.Label();
+            this.lblPlacement3DSize = new System.Windows.Forms.Label();
+            this.txtPlacement3DPositionX = new System.Windows.Forms.TextBox();
+            this.txtPlacement3DPositionY = new System.Windows.Forms.TextBox();
+            this.txtPlacement3DPositionZ = new System.Windows.Forms.TextBox();
+            this.txtPlacement3DSizeX = new System.Windows.Forms.TextBox();
+            this.txtPlacement3DSizeY = new System.Windows.Forms.TextBox();
+            this.txtPlacement3DSizeZ = new System.Windows.Forms.TextBox();
+            this.checkBox3DBarItemsOnly = new System.Windows.Forms.CheckBox();
             this.tableLayoutSample.SuspendLayout();
             this.tabControlSamples.SuspendLayout();
             this.tabPageProject.SuspendLayout();
@@ -144,7 +153,7 @@
             this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutSample.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutSample.Size = new System.Drawing.Size(764, 441);
+            this.tableLayoutSample.Size = new System.Drawing.Size(764, 481);
             this.tableLayoutSample.TabIndex = 0;
             // 
             // tabControlSamples
@@ -160,7 +169,7 @@
             this.tabControlSamples.Location = new System.Drawing.Point(3, 73);
             this.tabControlSamples.Name = "tabControlSamples";
             this.tabControlSamples.SelectedIndex = 0;
-            this.tabControlSamples.Size = new System.Drawing.Size(758, 315);
+            this.tabControlSamples.Size = new System.Drawing.Size(758, 355);
             this.tabControlSamples.TabIndex = 0;
             this.tabControlSamples.SelectedIndexChanged += new System.EventHandler(this.tabControlSamples_SelectedIndexChanged);
             // 
@@ -859,7 +868,7 @@
             this.tabPageLayoutSpace.Controls.Add(this.tableLayoutLayoutSpace);
             this.tabPageLayoutSpace.Location = new System.Drawing.Point(4, 22);
             this.tabPageLayoutSpace.Name = "tabPageLayoutSpace";
-            this.tabPageLayoutSpace.Size = new System.Drawing.Size(750, 289);
+            this.tabPageLayoutSpace.Size = new System.Drawing.Size(750, 329);
             this.tabPageLayoutSpace.TabIndex = 4;
             this.tabPageLayoutSpace.Text = "Layout Space";
             this.tabPageLayoutSpace.UseVisualStyleBackColor = true;
@@ -868,7 +877,7 @@
             // 
             this.tableLayoutLayoutSpace.ColumnCount = 9;
             this.tableLayoutLayoutSpace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutLayoutSpace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutLayoutSpace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutLayoutSpace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutLayoutSpace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutLayoutSpace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -876,22 +885,33 @@
             this.tableLayoutLayoutSpace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutLayoutSpace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutLayoutSpace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DSizeZ, 4, 6);
+            this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DSizeY, 3, 6);
+            this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DSizeX, 2, 6);
+            this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DPositionZ, 3, 5);
+            this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DPositionY, 3, 5);
+            this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DPositionX, 2, 5);
+            this.tableLayoutLayoutSpace.Controls.Add(this.lblPlacement3DSize, 1, 6);
+            this.tableLayoutLayoutSpace.Controls.Add(this.lblPlacement3DPosition, 1, 5);
             this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DLength, 5, 4);
             this.tableLayoutLayoutSpace.Controls.Add(this.lblPlacement3DLength, 4, 4);
-            this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DType, 2, 5);
-            this.tableLayoutLayoutSpace.Controls.Add(this.lblPlacement3DType, 1, 5);
+            this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DType, 2, 7);
+            this.tableLayoutLayoutSpace.Controls.Add(this.lblPlacement3DType, 1, 7);
             this.tableLayoutLayoutSpace.Controls.Add(this.cBoxPlaced3DObjects, 2, 2);
             this.tableLayoutLayoutSpace.Controls.Add(this.lblPlaced3DObjects, 1, 2);
             this.tableLayoutLayoutSpace.Controls.Add(this.lblPlacement3DFullDT, 1, 4);
             this.tableLayoutLayoutSpace.Controls.Add(this.lblMountingPanels, 1, 1);
             this.tableLayoutLayoutSpace.Controls.Add(this.cBoxMountingPanels, 2, 1);
             this.tableLayoutLayoutSpace.Controls.Add(this.txtPlacement3DFullDT, 2, 4);
-            this.tableLayoutLayoutSpace.Controls.Add(this.btnGoToGraphics, 4, 5);
+            this.tableLayoutLayoutSpace.Controls.Add(this.btnGoToGraphics, 4, 7);
+            this.tableLayoutLayoutSpace.Controls.Add(this.checkBox3DBarItemsOnly, 2, 3);
             this.tableLayoutLayoutSpace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutLayoutSpace.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutLayoutSpace.Name = "tableLayoutLayoutSpace";
-            this.tableLayoutLayoutSpace.RowCount = 8;
+            this.tableLayoutLayoutSpace.RowCount = 10;
             this.tableLayoutLayoutSpace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutLayoutSpace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutLayoutSpace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutLayoutSpace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutLayoutSpace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutLayoutSpace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -899,7 +919,7 @@
             this.tableLayoutLayoutSpace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutLayoutSpace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutLayoutSpace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutLayoutSpace.Size = new System.Drawing.Size(750, 289);
+            this.tableLayoutLayoutSpace.Size = new System.Drawing.Size(750, 329);
             this.tableLayoutLayoutSpace.TabIndex = 3;
             // 
             // txtPlacement3DLength
@@ -917,10 +937,10 @@
             // 
             this.lblPlacement3DLength.AutoSize = true;
             this.lblPlacement3DLength.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPlacement3DLength.Location = new System.Drawing.Point(392, 137);
+            this.lblPlacement3DLength.Location = new System.Drawing.Point(402, 137);
             this.lblPlacement3DLength.Margin = new System.Windows.Forms.Padding(7);
             this.lblPlacement3DLength.Name = "lblPlacement3DLength";
-            this.lblPlacement3DLength.Size = new System.Drawing.Size(121, 26);
+            this.lblPlacement3DLength.Size = new System.Drawing.Size(111, 26);
             this.lblPlacement3DLength.TabIndex = 27;
             this.lblPlacement3DLength.Text = "Length:";
             this.lblPlacement3DLength.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -930,21 +950,21 @@
             this.tableLayoutLayoutSpace.SetColumnSpan(this.txtPlacement3DType, 2);
             this.txtPlacement3DType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPlacement3DType.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtPlacement3DType.Location = new System.Drawing.Point(147, 177);
+            this.txtPlacement3DType.Location = new System.Drawing.Point(167, 257);
             this.txtPlacement3DType.Margin = new System.Windows.Forms.Padding(7);
             this.txtPlacement3DType.Name = "txtPlacement3DType";
             this.txtPlacement3DType.ReadOnly = true;
-            this.txtPlacement3DType.Size = new System.Drawing.Size(231, 25);
+            this.txtPlacement3DType.Size = new System.Drawing.Size(221, 25);
             this.txtPlacement3DType.TabIndex = 26;
             // 
             // lblPlacement3DType
             // 
             this.lblPlacement3DType.AutoSize = true;
             this.lblPlacement3DType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPlacement3DType.Location = new System.Drawing.Point(17, 177);
+            this.lblPlacement3DType.Location = new System.Drawing.Point(17, 257);
             this.lblPlacement3DType.Margin = new System.Windows.Forms.Padding(7);
             this.lblPlacement3DType.Name = "lblPlacement3DType";
-            this.lblPlacement3DType.Size = new System.Drawing.Size(116, 26);
+            this.lblPlacement3DType.Size = new System.Drawing.Size(136, 26);
             this.lblPlacement3DType.TabIndex = 25;
             this.lblPlacement3DType.Text = "3D Object Type:";
             this.lblPlacement3DType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -959,11 +979,11 @@
             this.cBoxPlaced3DObjects.FormattingEnabled = true;
             this.cBoxPlaced3DObjects.IntegralHeight = false;
             this.cBoxPlaced3DObjects.ItemHeight = 13;
-            this.cBoxPlaced3DObjects.Location = new System.Drawing.Point(145, 60);
+            this.cBoxPlaced3DObjects.Location = new System.Drawing.Point(165, 60);
             this.cBoxPlaced3DObjects.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.cBoxPlaced3DObjects.MaxDropDownItems = 9;
             this.cBoxPlaced3DObjects.Name = "cBoxPlaced3DObjects";
-            this.cBoxPlaced3DObjects.Size = new System.Drawing.Size(520, 21);
+            this.cBoxPlaced3DObjects.Size = new System.Drawing.Size(500, 21);
             this.cBoxPlaced3DObjects.TabIndex = 23;
             this.cBoxPlaced3DObjects.SelectedIndexChanged += new System.EventHandler(this.cBoxPlaced3DObjects_SelectedIndexChanged);
             // 
@@ -974,7 +994,7 @@
             this.lblPlaced3DObjects.Location = new System.Drawing.Point(17, 57);
             this.lblPlaced3DObjects.Margin = new System.Windows.Forms.Padding(7);
             this.lblPlaced3DObjects.Name = "lblPlaced3DObjects";
-            this.lblPlaced3DObjects.Size = new System.Drawing.Size(116, 26);
+            this.lblPlaced3DObjects.Size = new System.Drawing.Size(136, 26);
             this.lblPlaced3DObjects.TabIndex = 22;
             this.lblPlaced3DObjects.Text = "Placed 3D Objects:";
             this.lblPlaced3DObjects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -986,7 +1006,7 @@
             this.lblPlacement3DFullDT.Location = new System.Drawing.Point(17, 137);
             this.lblPlacement3DFullDT.Margin = new System.Windows.Forms.Padding(7);
             this.lblPlacement3DFullDT.Name = "lblPlacement3DFullDT";
-            this.lblPlacement3DFullDT.Size = new System.Drawing.Size(116, 26);
+            this.lblPlacement3DFullDT.Size = new System.Drawing.Size(136, 26);
             this.lblPlacement3DFullDT.TabIndex = 21;
             this.lblPlacement3DFullDT.Text = "Full DT:";
             this.lblPlacement3DFullDT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -998,7 +1018,7 @@
             this.lblMountingPanels.Location = new System.Drawing.Point(17, 17);
             this.lblMountingPanels.Margin = new System.Windows.Forms.Padding(7);
             this.lblMountingPanels.Name = "lblMountingPanels";
-            this.lblMountingPanels.Size = new System.Drawing.Size(116, 26);
+            this.lblMountingPanels.Size = new System.Drawing.Size(136, 26);
             this.lblMountingPanels.TabIndex = 0;
             this.lblMountingPanels.Text = "Mounting Panels:";
             this.lblMountingPanels.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1013,11 +1033,11 @@
             this.cBoxMountingPanels.FormattingEnabled = true;
             this.cBoxMountingPanels.IntegralHeight = false;
             this.cBoxMountingPanels.ItemHeight = 13;
-            this.cBoxMountingPanels.Location = new System.Drawing.Point(145, 20);
+            this.cBoxMountingPanels.Location = new System.Drawing.Point(165, 20);
             this.cBoxMountingPanels.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.cBoxMountingPanels.MaxDropDownItems = 9;
             this.cBoxMountingPanels.Name = "cBoxMountingPanels";
-            this.cBoxMountingPanels.Size = new System.Drawing.Size(520, 21);
+            this.cBoxMountingPanels.Size = new System.Drawing.Size(500, 21);
             this.cBoxMountingPanels.TabIndex = 13;
             this.cBoxMountingPanels.SelectedIndexChanged += new System.EventHandler(this.cBoxMountingPanels_SelectedIndexChanged);
             // 
@@ -1026,11 +1046,11 @@
             this.tableLayoutLayoutSpace.SetColumnSpan(this.txtPlacement3DFullDT, 2);
             this.txtPlacement3DFullDT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPlacement3DFullDT.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtPlacement3DFullDT.Location = new System.Drawing.Point(147, 137);
+            this.txtPlacement3DFullDT.Location = new System.Drawing.Point(167, 137);
             this.txtPlacement3DFullDT.Margin = new System.Windows.Forms.Padding(7);
             this.txtPlacement3DFullDT.Name = "txtPlacement3DFullDT";
             this.txtPlacement3DFullDT.ReadOnly = true;
-            this.txtPlacement3DFullDT.Size = new System.Drawing.Size(231, 25);
+            this.txtPlacement3DFullDT.Size = new System.Drawing.Size(221, 25);
             this.txtPlacement3DFullDT.TabIndex = 24;
             // 
             // btnGoToGraphics
@@ -1038,10 +1058,10 @@
             this.tableLayoutLayoutSpace.SetColumnSpan(this.btnGoToGraphics, 2);
             this.btnGoToGraphics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnGoToGraphics.Enabled = false;
-            this.btnGoToGraphics.Location = new System.Drawing.Point(390, 175);
+            this.btnGoToGraphics.Location = new System.Drawing.Point(400, 255);
             this.btnGoToGraphics.Margin = new System.Windows.Forms.Padding(5);
             this.btnGoToGraphics.Name = "btnGoToGraphics";
-            this.btnGoToGraphics.Size = new System.Drawing.Size(235, 30);
+            this.btnGoToGraphics.Size = new System.Drawing.Size(225, 30);
             this.btnGoToGraphics.TabIndex = 29;
             this.btnGoToGraphics.Text = "GoTo Graphics";
             this.btnGoToGraphics.UseVisualStyleBackColor = true;
@@ -1266,7 +1286,7 @@
             // btnOK
             // 
             this.btnOK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOK.Location = new System.Drawing.Point(611, 398);
+            this.btnOK.Location = new System.Drawing.Point(611, 438);
             this.btnOK.Margin = new System.Windows.Forms.Padding(7);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(136, 36);
@@ -1299,11 +1319,120 @@
             this.txtProject.TabIndex = 3;
             this.txtProject.Text = "EPLAN Project Full Path";
             // 
+            // lblPlacement3DPosition
+            // 
+            this.lblPlacement3DPosition.AutoSize = true;
+            this.lblPlacement3DPosition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPlacement3DPosition.Location = new System.Drawing.Point(17, 177);
+            this.lblPlacement3DPosition.Margin = new System.Windows.Forms.Padding(7);
+            this.lblPlacement3DPosition.Name = "lblPlacement3DPosition";
+            this.lblPlacement3DPosition.Size = new System.Drawing.Size(136, 26);
+            this.lblPlacement3DPosition.TabIndex = 30;
+            this.lblPlacement3DPosition.Text = "Position (X,Y,Z):";
+            this.lblPlacement3DPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPlacement3DSize
+            // 
+            this.lblPlacement3DSize.AutoSize = true;
+            this.lblPlacement3DSize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPlacement3DSize.Location = new System.Drawing.Point(17, 217);
+            this.lblPlacement3DSize.Margin = new System.Windows.Forms.Padding(7);
+            this.lblPlacement3DSize.Name = "lblPlacement3DSize";
+            this.lblPlacement3DSize.Size = new System.Drawing.Size(136, 26);
+            this.lblPlacement3DSize.TabIndex = 31;
+            this.lblPlacement3DSize.Text = "Size (X,Y,Z):";
+            this.lblPlacement3DSize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtPlacement3DPositionX
+            // 
+            this.txtPlacement3DPositionX.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPlacement3DPositionX.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPlacement3DPositionX.Location = new System.Drawing.Point(167, 177);
+            this.txtPlacement3DPositionX.Margin = new System.Windows.Forms.Padding(7);
+            this.txtPlacement3DPositionX.Name = "txtPlacement3DPositionX";
+            this.txtPlacement3DPositionX.ReadOnly = true;
+            this.txtPlacement3DPositionX.Size = new System.Drawing.Size(96, 25);
+            this.txtPlacement3DPositionX.TabIndex = 32;
+            this.txtPlacement3DPositionX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPlacement3DPositionY
+            // 
+            this.txtPlacement3DPositionY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPlacement3DPositionY.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPlacement3DPositionY.Location = new System.Drawing.Point(277, 177);
+            this.txtPlacement3DPositionY.Margin = new System.Windows.Forms.Padding(7);
+            this.txtPlacement3DPositionY.Name = "txtPlacement3DPositionY";
+            this.txtPlacement3DPositionY.ReadOnly = true;
+            this.txtPlacement3DPositionY.Size = new System.Drawing.Size(111, 25);
+            this.txtPlacement3DPositionY.TabIndex = 33;
+            this.txtPlacement3DPositionY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPlacement3DPositionZ
+            // 
+            this.txtPlacement3DPositionZ.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPlacement3DPositionZ.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPlacement3DPositionZ.Location = new System.Drawing.Point(402, 177);
+            this.txtPlacement3DPositionZ.Margin = new System.Windows.Forms.Padding(7);
+            this.txtPlacement3DPositionZ.Name = "txtPlacement3DPositionZ";
+            this.txtPlacement3DPositionZ.ReadOnly = true;
+            this.txtPlacement3DPositionZ.Size = new System.Drawing.Size(111, 25);
+            this.txtPlacement3DPositionZ.TabIndex = 34;
+            this.txtPlacement3DPositionZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPlacement3DSizeX
+            // 
+            this.txtPlacement3DSizeX.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPlacement3DSizeX.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPlacement3DSizeX.Location = new System.Drawing.Point(167, 217);
+            this.txtPlacement3DSizeX.Margin = new System.Windows.Forms.Padding(7);
+            this.txtPlacement3DSizeX.Name = "txtPlacement3DSizeX";
+            this.txtPlacement3DSizeX.ReadOnly = true;
+            this.txtPlacement3DSizeX.Size = new System.Drawing.Size(96, 25);
+            this.txtPlacement3DSizeX.TabIndex = 35;
+            this.txtPlacement3DSizeX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPlacement3DSizeY
+            // 
+            this.txtPlacement3DSizeY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPlacement3DSizeY.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPlacement3DSizeY.Location = new System.Drawing.Point(277, 217);
+            this.txtPlacement3DSizeY.Margin = new System.Windows.Forms.Padding(7);
+            this.txtPlacement3DSizeY.Name = "txtPlacement3DSizeY";
+            this.txtPlacement3DSizeY.ReadOnly = true;
+            this.txtPlacement3DSizeY.Size = new System.Drawing.Size(111, 25);
+            this.txtPlacement3DSizeY.TabIndex = 36;
+            this.txtPlacement3DSizeY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPlacement3DSizeZ
+            // 
+            this.txtPlacement3DSizeZ.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPlacement3DSizeZ.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtPlacement3DSizeZ.Location = new System.Drawing.Point(402, 217);
+            this.txtPlacement3DSizeZ.Margin = new System.Windows.Forms.Padding(7);
+            this.txtPlacement3DSizeZ.Name = "txtPlacement3DSizeZ";
+            this.txtPlacement3DSizeZ.ReadOnly = true;
+            this.txtPlacement3DSizeZ.Size = new System.Drawing.Size(111, 25);
+            this.txtPlacement3DSizeZ.TabIndex = 37;
+            this.txtPlacement3DSizeZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // checkBox3DBarItemsOnly
+            // 
+            this.checkBox3DBarItemsOnly.AutoSize = true;
+            this.tableLayoutLayoutSpace.SetColumnSpan(this.checkBox3DBarItemsOnly, 2);
+            this.checkBox3DBarItemsOnly.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox3DBarItemsOnly.Location = new System.Drawing.Point(163, 93);
+            this.checkBox3DBarItemsOnly.Name = "checkBox3DBarItemsOnly";
+            this.checkBox3DBarItemsOnly.Padding = new System.Windows.Forms.Padding(3);
+            this.checkBox3DBarItemsOnly.Size = new System.Drawing.Size(229, 34);
+            this.checkBox3DBarItemsOnly.TabIndex = 38;
+            this.checkBox3DBarItemsOnly.Text = "3D Bar Items Only";
+            this.checkBox3DBarItemsOnly.UseVisualStyleBackColor = true;
+            // 
             // ApiExtSampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 441);
+            this.ClientSize = new System.Drawing.Size(764, 481);
             this.Controls.Add(this.tableLayoutSample);
             this.Name = "ApiExtSampleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -1417,5 +1546,14 @@
         private System.Windows.Forms.ComboBox cBoxBOMPages;
         private System.Windows.Forms.TextBox txtBOMPartNumber;
         private System.Windows.Forms.Button btnBOMReplacePart;
+        private System.Windows.Forms.TextBox txtPlacement3DPositionZ;
+        private System.Windows.Forms.TextBox txtPlacement3DPositionY;
+        private System.Windows.Forms.TextBox txtPlacement3DPositionX;
+        private System.Windows.Forms.Label lblPlacement3DSize;
+        private System.Windows.Forms.Label lblPlacement3DPosition;
+        private System.Windows.Forms.TextBox txtPlacement3DSizeZ;
+        private System.Windows.Forms.TextBox txtPlacement3DSizeY;
+        private System.Windows.Forms.TextBox txtPlacement3DSizeX;
+        private System.Windows.Forms.CheckBox checkBox3DBarItemsOnly;
     }
 }

@@ -489,11 +489,16 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             if (selectedItem == null)
                 return;
 
-            IEnumerable<BarBase> barBaseList = GetLayoutSpaceBarBaseObjects(selectedItem.MountingPanel);
+            IEnumerable<Function3D> function3DList = null;
 
-            foreach (BarBase barBase in barBaseList)
+            if (checkBox3DBarItemsOnly.Checked)
+                function3DList = GetLayoutSpaceBarBaseObjects(selectedItem.MountingPanel);
+            else
+                function3DList = GetLayoutSpaceFunction3DObjects(selectedItem.MountingPanel);
+
+            foreach (Function3D function3D in function3DList)
             {
-                cBoxPlaced3DObjects.Items.Add(new EplanBarBaseViewModel(barBase));
+                cBoxPlaced3DObjects.Items.Add(new EplanFunction3DViewModel(function3D));
             }
         }
 
@@ -503,19 +508,37 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             this.txtPlacement3DLength.Text = string.Empty;
             this.txtPlacement3DType.Text = string.Empty;
 
+            this.txtPlacement3DPositionX.Text = string.Empty;
+            this.txtPlacement3DPositionY.Text = string.Empty;
+            this.txtPlacement3DPositionZ.Text = string.Empty;
+
+            this.txtPlacement3DSizeX.Text = string.Empty;
+            this.txtPlacement3DSizeY.Text = string.Empty;
+            this.txtPlacement3DSizeZ.Text = string.Empty;
+
             this.btnGoToGraphics.Enabled = false;
 
             if (cBoxPlaced3DObjects.SelectedIndex == -1)
                 return;
 
-            EplanBarBaseViewModel selectedItem = this.cBoxPlaced3DObjects.SelectedItem as EplanBarBaseViewModel;
+            EplanFunction3DViewModel selectedItem = this.cBoxPlaced3DObjects.SelectedItem as EplanFunction3DViewModel;
 
             if (selectedItem == null)
                 return;
 
-            this.txtPlacement3DFullDT.Text = selectedItem.BarBase.Name;
-            this.txtPlacement3DLength.Text = selectedItem.BarBase.Length.ToString();
-            this.txtPlacement3DType.Text = selectedItem.BarBase.Properties[Properties.Placement3D.FUNC_COMPONENTTYPE].ToLocaleText(this._locale);
+            this.txtPlacement3DFullDT.Text = selectedItem.Function3D.Name;
+            this.txtPlacement3DLength.Text = selectedItem.GetLengthText();
+            this.txtPlacement3DType.Text = selectedItem.Function3D.Properties[Properties.Placement3D.FUNC_COMPONENTTYPE].ToLocaleText(this._locale);
+
+            var boundingBox = selectedItem.GetBoundingBox();
+
+            this.txtPlacement3DPositionX.Text = boundingBox.X.ToString("0.00");
+            this.txtPlacement3DPositionY.Text = boundingBox.Y.ToString("0.00");
+            this.txtPlacement3DPositionZ.Text = boundingBox.Z.ToString("0.00");
+
+            this.txtPlacement3DSizeX.Text = boundingBox.SizeX.ToString("0.00");
+            this.txtPlacement3DSizeY.Text = boundingBox.SizeY.ToString("0.00");
+            this.txtPlacement3DSizeZ.Text = boundingBox.SizeZ.ToString("0.00");
 
             this.btnGoToGraphics.Enabled = true;
         }
@@ -525,12 +548,12 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             if (cBoxPlaced3DObjects.SelectedIndex == -1)
                 return;
 
-            EplanBarBaseViewModel selectedItem = this.cBoxPlaced3DObjects.SelectedItem as EplanBarBaseViewModel;
+            EplanFunction3DViewModel selectedItem = this.cBoxPlaced3DObjects.SelectedItem as EplanFunction3DViewModel;
 
             if (selectedItem == null)
                 return;
 
-            ApiExtHelpers.OpenInstallationSpaceWithPlacement3D(selectedItem.BarBase);
+            ApiExtHelpers.OpenInstallationSpaceWithPlacement3D(selectedItem.Function3D);
         }
 
         #endregion
@@ -935,6 +958,35 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
         }
 
         /// <summary>
+        /// Get the Function3D list from Childern of MountingPanel
+        /// - All Placement3D Items
+        /// </summary>
+        /// <param name="mountingPanel"></param>
+        /// <returns></returns>
+        private IEnumerable<Function3D> GetLayoutSpaceFunction3DObjects(Placement3D parentPlacement3D)
+        {
+            List<Function3D> toReturn = new List<Function3D>();
+
+            if (parentPlacement3D.Children.Length == 0)
+                return toReturn;
+
+            var barBaseList = parentPlacement3D.Children.OfType<Function3D>();
+
+            // Get the Function3D among Children
+            if (barBaseList != null && barBaseList.Count() > 0) {
+                toReturn.AddRange(barBaseList);
+            }
+
+            // Get the Function3D from Children of a Child
+            foreach (Placement3D placement3D in parentPlacement3D.Children)
+            {
+                toReturn.AddRange(GetLayoutSpaceFunction3DObjects(placement3D));
+            }
+
+            return toReturn;
+        }
+
+        /// <summary>
         /// Get the BarBase list from Childern of MountingPanel
         /// - BusBar
         /// - Duct
@@ -952,10 +1004,12 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             var barBaseList = parentPlacement3D.Children.OfType<BarBase>();
 
             // Get the BarBase among Children
-            if (barBaseList != null && barBaseList.Count() > 0) {
+            if (barBaseList != null && barBaseList.Count() > 0)
+            {
                 toReturn.AddRange(barBaseList);
             }
-            else {
+            else
+            {
                 // Get the BarBase from Children of a Child
                 foreach (Placement3D placement3D in parentPlacement3D.Children)
                 {

@@ -73,6 +73,7 @@
     <Reference Include="Microsoft.CSharp">
       <Private>False</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -114,6 +115,7 @@
     </Compile>
     <Compile Include="ViewModels\EplanArticleReferenceViewModel.cs" />
     <Compile Include="ViewModels\EplanBarBaseViewModel.cs" />
+    <Compile Include="ViewModels\EplanFunction3DViewModel.cs" />
     <Compile Include="ViewModels\EplanFunctionViewModel.cs" />
     <Compile Include="ViewModels\EplanMountingPanelViewModel.cs" />
     <Compile Include="Helpers\ApiExtHelpers.cs" />

@@ -1,6 +1,7 @@
 ﻿using Eplan.EplApi.DataModel;
 using Eplan.EplApi.DataModel.E3D;
 using System;
+using System.Windows.Media.Media3D;
 
 namespace Eplan.EplAddin.ApiSampleAddin.Forms
 {
@@ -19,6 +20,21 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
         public BarBase BarBase
         {
             get { return this._barBase; }
+        }
+
+        public bool IsBarBase
+        {
+            get { return true; }
+        }
+
+        public string GetLengthText()
+        {
+            return this._barBase.Length.ToString();
+        }
+
+        public Rect3D GetBoundingBox(bool withChildren = false)
+        {
+            return this._barBase.GetBoundingBox(withChildren);
         }
 
         public override string ToString()
