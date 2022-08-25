@@ -246,10 +246,15 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
             {
                 Page targetPage = ((EplanPageViewModel)this.cBoxPagePages.SelectedItem).Page;
 
-                targetPage.Properties["EPLAN.Page.UserSupplementaryField11"] = string.Format("UserSupplementaryField11@{0}", DateTime.Now.ToString());
-                targetPage.Properties[11901, 21] = string.Format("SupplementaryField[21]@{0}", DateTime.Now.ToString());
+                using (SafetyPoint safetyPoint = SafetyPoint.Create())
+                {
+                    targetPage.Properties["EPLAN.Page.UserSupplementaryField11"] = string.Format("UserSupplementaryField11@{0}", DateTime.Now.ToString());
+                    targetPage.Properties[11901, 21] = string.Format("SupplementaryField[21]@{0}", DateTime.Now.ToString());
 
-                MessageDisplayHelper.Show("Set Properties Completed!", "::: Set Page Properties");
+                    safetyPoint.Commit(); //necessary, otherwise changes from the block are rolled-back
+
+                    MessageDisplayHelper.Show("Set Properties Completed!", "::: Set Page Properties");
+                }
             }
             catch (Exception ex)
             {
@@ -273,24 +278,42 @@ namespace Eplan.EplAddin.ApiSampleAddin.Forms
                 propertyText.AppendFormat("PageType = [{1}]{0}", Environment.NewLine, targetPage.PageType);
                 propertyText.AppendFormat("PageTypeName = [{1}]{0}{0}", Environment.NewLine, targetPage.PageTypeName);
 
-                propertyText.AppendFormat("EPLAN.Page.UserSupplementaryField11 = [{1}]{0}{0}", Environment.NewLine, targetPage.Properties["EPLAN.Page.UserSupplementaryField11"]);
+                try
+                {
+                    propertyText.AppendFormat("EPLAN.Page.UserSupplementaryField11 = [{1}]{0}{0}", Environment.NewLine, targetPage.Properties["EPLAN.Page.UserSupplementaryField11"]);
+                }
+                catch (Exception usfEx)
+                {
+                    propertyText.AppendFormat("EPLAN.Page.UserSupplementaryField11 = [{1}]{0}{0}", Environment.NewLine, usfEx.Message);
+                }
 
-                propertyText.AppendFormat("SupplementaryField[21]{0}", Environment.NewLine);
-                propertyText.AppendFormat(" ToString() = [{1}]{0}", Environment.NewLine, targetPage.Properties[11901, 21]);
-                propertyText.AppendFormat(" ToString(Lang) = [{1}]{0}", Environment.NewLine, targetPage.Properties[11901, 21].ToString(guiLang.GetNumber()));
-                propertyText.AppendFormat(" ToMultiLangString().GetStringToDisplay(Lang) = [{1}]{0}{0}", Environment.NewLine, targetPage.Properties[11901, 21].ToMultiLangString().GetStringToDisplay(guiLang.GetNumber()));
+                try
+                {
+                    propertyText.AppendFormat("SupplementaryField[21]{0}", Environment.NewLine);
+                    propertyText.AppendFormat(" ToString() = [{1}]{0}", Environment.NewLine, targetPage.Properties[11901, 21]);
+                    propertyText.AppendFormat(" ToString(Lang) = [{1}]{0}", Environment.NewLine, targetPage.Properties[11901, 21].ToString(guiLang.GetNumber()));
+                    propertyText.AppendFormat(" ToMultiLangString().GetStringToDisplay(Lang) = [{1}]{0}{0}", Environment.NewLine, targetPage.Properties[11901, 21].ToMultiLangString().GetStringToDisplay(guiLang.GetNumber()));
+                }
+                catch (Exception sfEx)
+                {
+                    propertyText.AppendFormat("SupplementaryField[21] = [{1}]{0}{0}", Environment.NewLine, sfEx.Message);
+                }
 
                 propertyText.AppendFormat("Page Description{0}", Environment.NewLine);
                 propertyText.AppendFormat(" ToString() = [{1}]{0}", Environment.NewLine, targetPage.Properties.PAGE_NOMINATIOMN);
                 propertyText.AppendFormat(" ToString(Lang) = [{1}]{0}", Environment.NewLine, targetPage.Properties.PAGE_NOMINATIOMN.ToString(guiLang.GetNumber()));
-                propertyText.AppendFormat(" ToMultiLangString().GetStringToDisplay(Lang) = [{1}]{0}", Environment.NewLine, targetPage.Properties.PAGE_NOMINATIOMN.ToMultiLangString().GetStringToDisplay(guiLang.GetNumber()));
+                propertyText.AppendFormat(" ToMultiLangString().GetStringToDisplay(Lang) = [{1}]{0}{0}", Environment.NewLine, targetPage.Properties.PAGE_NOMINATIOMN.ToMultiLangString().GetStringToDisplay(guiLang.GetNumber()));
 
+                // Last editor: Sign-in name # 11022.
+                PropertyValue pagePropertyValue = targetPage.Properties[Properties.Page.PAGE_LASTMODIFICATOR];
 
-                MessageDisplayHelper.Show(propertyText.ToString(), "::: Read Project Properties");
+                propertyText.AppendFormat("{1} = [{2}]{0}{0}", Environment.NewLine, pagePropertyValue.Definition.Name, pagePropertyValue);
+
+                MessageDisplayHelper.Show(propertyText.ToString(), "::: Read Page Properties");
             }
             catch (Exception ex)
             {
-                MessageDisplayHelper.Show(string.Format("Read Properties Failed!{0}{1}", Environment.NewLine, ex.Message), "::: Read Project Properties", EnumDecisionIcon.eEXCLAMATION);
+                MessageDisplayHelper.Show(string.Format("Read Properties Failed!{0}{1}", Environment.NewLine, ex.Message), "::: Read Page Properties", EnumDecisionIcon.eEXCLAMATION);
             }
 
         }
