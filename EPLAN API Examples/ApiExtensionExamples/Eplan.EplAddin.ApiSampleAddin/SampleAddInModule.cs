@@ -1,7 +1,7 @@
 using Eplan.EplAddin.ApiSampleAddin.Events;
+using Eplan.EplAddin.ApiSampleAddin.Internals;
 using Eplan.EplAddin.ApiSampleAddin.Logging;
 using Eplan.EplApi.ApplicationFramework;
-using Eplan.EplApi.Gui;
 using log4net;
 using System;
 using System.IO;
@@ -60,20 +60,7 @@ namespace Eplan.EplAddin.ApiSampleAddin
             if (this._logger != null)
                 this._logger.InfoFormat("OnInitGui()@{0}", DateTime.Now);
 
-            Menu apiExtMenu = new Menu();
-
-            uint menuId = apiExtMenu.AddMainMenu("[API Extensions]", Menu.MainMenuName.eMainMenuHelp,
-                                                  "FirstAction Text", "FirstAction", "First Action Samples", 1);
-            menuId = apiExtMenu.AddMenuItem("Call Other Action", "ActionApiExtCallOtherAction", "Call Other Action", menuId, 1, false, false);
-
-            uint popupMenuId = apiExtMenu.AddPopupMenuItem("API Popup Menu", "Popup Menu Sample", "ActionApiExtPopupMenu", "Popup Menu Sample...", menuId, 1, false, false);
-            popupMenuId = apiExtMenu.AddMenuItem("Next Symbol Variant", "ActionNextSymbolVariant", "Next Symbol Variant...", popupMenuId, 1, false, false);
-
-            menuId = apiExtMenu.AddMenuItem("Gui Examples", "ActionApiExtWithGuiSamples", "Gui Examples...", menuId, 1, false, false);
-
-            ContextMenu contextMenu = new ContextMenu();
-            ContextMenuLocation menuLocation = new ContextMenuLocation("Editor", "Ged");
-            contextMenu.AddMenuItem(menuLocation, "API Ext Context Menu", "ActionApiContextMenu", true, false);
+            CustomMenuBuilder.CreateMenuAndToolbar(true);
 
             return true;
         }
@@ -93,6 +80,8 @@ namespace Eplan.EplAddin.ApiSampleAddin
 
             bLoadOnStart = true;
 
+            CustomMenuBuilder.RegisterMenuAndToolbar(true);
+
             return true;
         }
 
@@ -100,6 +89,8 @@ namespace Eplan.EplAddin.ApiSampleAddin
         {
             if (this._logger != null)
                 this._logger.InfoFormat("OnUnregister()@{0}", DateTime.Now);
+
+            CustomMenuBuilder.UnregisterMenuAndToolbar(true);
 
             return true;
         }

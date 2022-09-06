@@ -35,7 +35,7 @@ namespace Eplan.EplAddin.ApiSampleAddin.Interactions
             //MessageBox.Show(string.Format("OnSuccess(), result=[{0}]", result == null ? "NULL" : result.GetParameterCount().ToString()), "DerivedSymbolInsertInteraction");
 
             // set property of inserted function
-            Placement[] placements = InsertedPlacements;
+            StorableObject[] placements = InsertedItems;
 
             foreach (var function in placements.OfType<Function>())
             {
